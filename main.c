@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/02/24 16:57:26 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/02/25 12:33:39 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,19 +14,25 @@
 
 int ft_printf(const char *, ...);
 
-int main()
-{
-    const char a = 'x';
-    const char b = 'y'; 
-    const char c = 'z';
-    ft_printf("ft_printf -  This is char %c\n", a, b, c);
-}
-
-
 // int main()
 // {
-//     int ret1;
-//     int ret2;
+//     const char a = 'x';
+//     const char b = 'y'; 
+//     const char c = 'z';
+//     ft_printf("ft_printf -  This is char %c\n", a, b, c);
+// }
+
+
+int main()
+{
+    int ret1;
+    int ret2;
+    char c;
+    c = 'a';
+    ret1 = ft_printf("Hello %c !\n", c);
+    ret2 = printf("Hello %c !\n", c);
+    printf("ma fct i : ret1 %c vraie fct : ret2 %c\n", ret1, ret2);
+}
 //     char *str;
 //     str = 'world';
 //     int a = 2021;

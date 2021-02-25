@@ -1,32 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   parser.c                                           :+:      :+:    :+:   */
+/*   ft_parser_char.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:19:04 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/02/24 16:57:25 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/02/25 17:07:04 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int ft_parser(char format)
+#include "ft_printf.h"
+
+int		ft_parser_char(char *format, t_flags *data, int count_chars)
 {
   int i; 
-  int ret;
 
   i = 0;
-  while ((ret = ft_strchr(format, '%')) != 0)
+  while (format[i])
   {
-      i++;
-      if ((ft_strchr(format, '%')) == 0)
+      if (format[i] != '%')
       {
-          if (ret[i] == 'c')
-            data.type = 'c'; 
+     	 ft_putchar(format[i]);
       }
+      if (format[i] == '%')
+      {
+        data->type = 'c'; 
+        ft_putchar(format[i]);
+      }
+    i++;
   } 
-
-  return (0);
+  i = count_chars + 1;
+  return (count_chars);
 }
 
 //Si derriere le % on a s => on cherche une string 
