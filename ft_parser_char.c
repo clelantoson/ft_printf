@@ -6,13 +6,13 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:19:04 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/02/25 17:07:04 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/02/26 12:09:53 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int		ft_parser_char(char *format, t_flags *data, int count_chars)
+int		ft_parser_char(char c, char *format, t_flags *data, int count_chars)
 {
   int i; 
 
@@ -21,16 +21,19 @@ int		ft_parser_char(char *format, t_flags *data, int count_chars)
   {
       if (format[i] != '%')
       {
-     	 ft_putchar(format[i]);
+			ft_putchar(format[i]);
+			count_chars++;
       }
       if (format[i] == '%')
       {
         data->type = 'c'; 
-        ft_putchar(format[i]);
+        i++;
+        ft_putchar(c);
+		count_chars++;
       }
     i++;
   } 
-  i = count_chars + 1;
+  //i = count_chars + 1;
   return (count_chars);
 }
 
