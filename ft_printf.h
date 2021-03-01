@@ -6,6 +6,7 @@
 typedef struct s_flags
 {
     int type;
+    char buffer;
 
 } t_flags;
 

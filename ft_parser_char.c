@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/23 16:19:04 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/02/26 12:09:53 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/01 16:04:55 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,6 @@ int		ft_parser_char(char c, char *format, t_flags *data, int count_chars)
       }
     i++;
   } 
-  //i = count_chars + 1;
   return (count_chars);
 }
 
