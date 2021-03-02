@@ -14,14 +14,14 @@
 
 int		ft_deal_with_char(char c, t_flags *data, int count_chars)
 {
-  ft_putchar(c);
-  return (count_chars + 1);
+	ft_putchar(c);
+	return (count_chars + 1);
 }
 
-//Si derriere le % on a s => on cherche une string 
-  //Si derriere le % on a d => on cherche un int et ainsi de suite 
+//Si derriere le % on a s => on cherche une string
+	//Si derriere le % on a d => on cherche un int et ainsi de suite
 
-  //1er % == arg[0], 2e % == arg[1]
-  //si y'a plus de % que de args 
+	//1er % == arg[0], 2e % == arg[1]
+	//si y'a plus de % que de args
 
-  //si on trouve un % on stock le type dans ma structures (from astrid)
+	//si on trouve un % on stock le type dans ma structures (from astrid)

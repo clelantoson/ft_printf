@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/02 17:16:40 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/03 00:05:33 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ int ft_printf(const char *, ...);
 // int main()
 // {
 //     const char a = 'x';
-//     const char b = 'y'; 
+//     const char b = 'y';
 //     const char c = 'z';
 //     ft_printf("ft_printf -  This is char %c\n", a, b, c);
 // }
@@ -32,9 +32,12 @@ int main()
     ret1 = ft_printf("1 - Hello %c !\n", c);
     ret2 = printf("2 - Hello %c !\n", c);
     printf("ma fct i : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    char *str;
+    str = "world";
+    ret1 = ft_printf("Hello %s !\n", str);
+    ret2 = printf("Hello %s !\n", str);
+    printf("ma fct i : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 }
-//     char *str;s
-//     str = 'world';
 //     int a = 2021;
 //     ret1 = ft_printf("Hello %i !\n", a);
 //     ret2 = printf("Hello %i !\n", a);
