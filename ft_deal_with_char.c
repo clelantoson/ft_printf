@@ -12,10 +12,9 @@
 
 #include "ft_printf.h"
 
-int		ft_deal_with_char(char c, t_flags *data, int count_chars)
+void		ft_deal_with_char(char c, t_flags *data)
 {
-	ft_putchar(c);
-	return (count_chars + 1);
+	ft_putchar(c, data);
 }
 
 //Si derriere le % on a s => on cherche une string
