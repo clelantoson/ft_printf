@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/03 00:06:40 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/03 16:22:11 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,14 +20,20 @@ int     ft_dispatch_to_type(int arg, t_flags data, va_list args)
 	if (arg == 'c')
 		count_chars = ft_deal_with_char(va_arg(args, int), &data, count_chars);
    else if (arg == 's')
-	   count_chars = ft_deal_with_char(*(va_arg(args, char *)), &data, count_chars);
+	   count_chars = ft_deal_with_str(va_arg(args, char *), &data, count_chars);
 	// else if (c == 'p')
-	//     count_chars = ft_parser_ptr(va_arg(args, idk), (char *)format, &data, count_chars);
-	// else if (c == 'd')
-	//     count_chars = ft_parser_d(va_arg(args, int), (char *)format, &data, count_chars);
-	// else if (c == 'i')
-	//     count_chars = ft_parser_d(va_arg(args, int), (char *)format, &data, count_chars);
-	// printf("ft_dispatch_to_type - count_chars = %d\n", count_chars);
+	//     count_chars = ft_deal_with_ptr(va_arg(args, idk), (char *)format, &data, count_chars);
+	else if (arg == 'd' || arg == 'i')
+	    count_chars = ft_deal_with_int(va_arg(args, int), &data, count_chars);
+	// else if (c == 'u')
+	//     count_chars = ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
+	// else if (c == 'x')
+	//     count_chars = ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
+	// else if (c == 'X')
+	//     count_chars = ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
+	// else if (c == '%')
+	//     count_chars = ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
+	
 	return (count_chars);
 }
 

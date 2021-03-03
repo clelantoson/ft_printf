@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/03 00:05:33 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/03 14:16:48 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ int main()
     ret1 = ft_printf("Hello %s !\n", str);
     ret2 = printf("Hello %s !\n", str);
     printf("ma fct i : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    int a = 2021;
+    ret1 = ft_printf("Hello %i !\n", a);
+    ret2 = printf("Hello %i !\n", a);
+    printf("ma fct i : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    ret1 = ft_printf("Hello %d !\n", a);
+    ret2 = printf("Hello %d !\n", a);
+    printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 }
-//     int a = 2021;
-//     ret1 = ft_printf("Hello %i !\n", a);
-//     ret2 = printf("Hello %i !\n", a);
-//     printf("ma fct i : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-//     ret1 = ft_printf("Hello %d !\n", a);
-//     ret2 = printf("Hello %d !\n", a);
-//     printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 //     ret1 = ft_printf("Hello %% !\n");
 //     ret2 = printf("Hello %% !\n");
 //     printf("ma fct %% : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);

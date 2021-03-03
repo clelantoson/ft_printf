@@ -1,6 +1,18 @@
 #include "ft_printf.h"
 #include <unistd.h>
 
+size_t	ft_strlen(const char *str)
+{
+	size_t i;
+
+	i = 0;
+	while (str[i])
+	{
+		i++;
+	}
+	return (i);
+}
+
 void	ft_putstr(char *s)
 {
 	int i;
@@ -15,24 +27,52 @@ void	ft_putstr(char *s)
 	}
 }
 
+// void	ft_putchar(char c, t_flags *data)
+// {
+// 	write(1, &c, 1);
+// 	data->count_chars++;
+// }
+
 void	ft_putchar(char c)
 {
-	write(1, &c, 1);
+ 	write(1, &c, 1);
 }
 
-char	*ft_strchr(const char *s, int c)
+int	ft_putnbr_count_chars(int n)
 {
-	int i;
+	unsigned int bignum;
+	int count_chars;
 
-	i = 0;
-	while (s[i] != (char)c && s[i] != 0)
-		i++;
-	if (s[i] == (char)c)
+	count_chars = 0;
+	bignum = n;
+	if (n < 0)
 	{
-		return ((char *)s + i);
+		bignum = -bignum;
+		ft_putchar('-');
+		count_chars++;
 	}
-	else
+	if (bignum >= 10)
 	{
-		return (NULL);
-	}
+		ft_putnbr_count_chars(bignum / 10);
+	}	
+	ft_putchar(bignum % 10 + '0');
+	count_chars++;
+	return(count_chars);
 }
+
+// void	ft_putnbr_count_chars(int n, t_flags *data)
+// {
+// 	unsigned int bignum;
+
+// 	bignum = n;
+// 	if (n < 0)
+// 	{
+// 		bignum = -bignum;
+// 		ft_putchar('-', data);
+// 	}
+// 	if (bignum >= 10)
+// 	{
+// 		ft_putnbr_count_chars(bignum / 10, data);
+// 	}	
+// 	ft_putchar(bignum % 10 + '0', data);
+// }
