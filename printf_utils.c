@@ -1,5 +1,6 @@
 #include "ft_printf.h"
 #include <unistd.h>
+#include <stdio.h>
 
 size_t	ft_strlen(const char *str)
 {
@@ -75,4 +76,5 @@ void	ft_putnbr_count_chars(int n, t_flags *data)
 		ft_putnbr_count_chars(bignum / 10, data);
 	}
 	ft_putchar(bignum % 10 + '0', data);
+	printf("data %d \n", data->count_chars);
 }
