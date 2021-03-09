@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/04 12:46:48 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/10 00:24:02 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,16 +23,16 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 		ft_deal_with_str(va_arg(args, char *), data);
 	// else if (c == 'p')
 	//ft_deal_with_ptr(va_arg(args, idk), (char *)format, &data);
-	else if (arg == 'd' || arg == 'i')
+	else if (arg == 'd' || arg == 'i' || arg == 'u' )
 		ft_deal_with_int(va_arg(args, int), data);
-	// else if (c == 'u')
-	//	ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
-	// else if (c == 'x')
-	//	ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
-	// else if (c == 'X')
-	//	ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
-	// else if (c == '%')
-	//	ft_deal_with_int(va_arg(args, int), (char *)format, &data, count_chars);
+	// else if (arg == 'u')
+	// 	ft_deal_with_u_int(va_arg(args, int), data);
+	else if (arg == 'x')
+		ft_deal_with_hex(va_arg(args, unsigned int), 1, data);
+	else if (arg == 'X')
+		ft_deal_with_hex(va_arg(args, unsigned int), 0, data);
+	else if (arg == '%')
+		ft_deal_with_pc(data);
 
 	//return (count_chars);
 }
@@ -64,7 +64,7 @@ int		ft_printf(const char *format, ...)
 			data.type = format[data.i + 1];
 			// i++;
 			// printf("format[i + 1] = %d !\n", format[i + 1]);
-			ft_dispatch_to_type((char)data.type, &data, args); 
+			ft_dispatch_to_type((char)data.type, &data, args);
 			//printf("data %d \n", data.count_chars);
 		}
 		data.i++;

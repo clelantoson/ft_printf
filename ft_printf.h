@@ -24,5 +24,8 @@ void		ft_deal_with_str(char *str, t_flags *data);
 void    ft_putnbr_count_chars(int n, t_flags *data);
 void     ft_deal_with_int(int num, t_flags *data);
 t_flags ft_init_struct(void);
+void	ft_deal_with_pc(t_flags *data);
+void	ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data);
+char*	ft_tolower(char *str);
 
 #endif

@@ -76,5 +76,24 @@ void	ft_putnbr_count_chars(int n, t_flags *data)
 		ft_putnbr_count_chars(bignum / 10, data);
 	}
 	ft_putchar(bignum % 10 + '0', data);
-	printf("data %d \n", data->count_chars);
+	//printf("data %d \n", data->count_chars);
+}
+
+
+char*	ft_tolower(char *str)
+{
+	int i;
+
+	i = 0;
+	while(str[i])
+	{
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = (str[i] + 32);
+			i++;
+		}
+		else
+			return (str);
+	}
+	return (str);
 }

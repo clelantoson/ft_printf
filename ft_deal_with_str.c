@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/03 19:30:53 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/10 00:10:41 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,6 @@ void	ft_deal_with_str(char *str, t_flags *data)
 	while (str[i])
 	{
 		ft_putchar(str[i], data);
-   		i++;
+		i++;
 	}
 }
