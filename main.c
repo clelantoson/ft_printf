@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/09 23:52:45 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/11 00:24:47 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int main()
     // ret1 = ft_printf("1 - Hello %c !\n", c);
     // ret2 = printf("2 - Hello %c !\n", c);
     // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    // char *str;
-    // str = "world";
+    char *str;
+    str = "world";
     // ret1 = ft_printf("1 - Hello %s !\n", str);
     // ret2 = printf("2 - Hello %s !\n", str);
     // printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
@@ -47,15 +47,15 @@ int main()
     // ret1 = ft_printf("1 - Hello %% !\n");
     // ret2 = printf("2 - Hello %% !\n");
     // printf("ma fct %% : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    int x = 2730;
+    int X = 107;
+    ret1 = ft_printf("Hello %X !\n", X);
+    ret2 = printf("Hello %X !\n", X);
+    printf("ma fct hexa X : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    int x = 108;
     ret1 = ft_printf("Hello %x !\n", x);
     ret2 = printf("Hello %x !\n", x);
     printf("ma fct hexa x : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-}
-//     int X = 107;
-//     ret1 = ft_printf("Hello %X !\n", X);
-//     ret2 = printf("Hello %X !\n", X);
-//     printf("ma fct hexa X : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    /*ret1 = ft_printf("Hello %p !\n", str);
-    ret1 = printf("Hello %p !\n", str);
-    printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);*/
+    ret1 = ft_printf("Hello %p !\n", str);
+    ret2 = printf("Hello %p !\n", str);
+    printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    }

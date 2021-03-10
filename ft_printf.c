@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/10 00:24:02 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/11 00:26:09 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,8 +21,8 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 		ft_deal_with_char(va_arg(args, int), data);
 	else if (arg == 's')
 		ft_deal_with_str(va_arg(args, char *), data);
-	// else if (c == 'p')
-	//ft_deal_with_ptr(va_arg(args, idk), (char *)format, &data);
+	else if (arg == 'p')
+		ft_deal_with_ptr(va_arg(args, unsigned long long), data);
 	else if (arg == 'd' || arg == 'i' || arg == 'u' )
 		ft_deal_with_int(va_arg(args, int), data);
 	// else if (arg == 'u')

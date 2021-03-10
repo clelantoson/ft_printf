@@ -1,30 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_hex.c                                 :+:      :+:    :+:   */
+/*   ft_deal_with_ptr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/05 20:58:39 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/10 17:16:53 by cle-lan          ###   ########.fr       */
+/*   Created: 2021/03/10 14:51:10 by cle-lan           #+#    #+#             */
+/*   Updated: 2021/03/11 00:39:29 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data)
+void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 {
-	char	*hexa;
+	char	*pointer;
 	int i;
+	int count;
 
 	i = 0;
-	hexa = ft_ulltoa_base((unsigned long long)to_hexa, 16);
-	if (to_lower == 1)
-		hexa = ft_tolower(hexa);
-	while (hexa[i])
+	count = 0;
+	pointer = ft_ulltoa_base(to_pointer, 16);
+	pointer = ft_tolower(pointer);
+	ft_putstr("0x", data);
+	while (pointer[i])
 	{
-		ft_putchar(hexa[i], data);
+		ft_putchar(pointer[i], data);
 		i++;
 	}
 }
-
