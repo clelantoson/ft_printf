@@ -6,13 +6,14 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 16:22:06 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/10 00:10:15 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/10 00:55:05 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_is_in_type_list(int c)
+int		ft_is_in_type_list(int c)
 {
-     return ((c == 'c') || (c == 's') || (c == 'd') || (c == 'i') || (c == 'u') || (c == 'x')|| (c == 'X')|| (c == '%'));
+	 return ((c == 'c') || (c == 's') || (c == 'd') || (c == 'i') || (c == 'u') ||
+	 (c == 'x')|| (c == 'X')|| (c == '%'));
 }
