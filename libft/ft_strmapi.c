@@ -1,25 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_strmapi.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/12/07 09:51:58 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/15 15:33:31 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+char		*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	int i;
+	int		i;
+	char	*str;
 
 	i = 0;
-	while (str[i])
+	if (!s || !f)
+		return (NULL);
+	str = (char *)malloc(sizeof(*s) * (ft_strlen(s) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s[i])
 	{
-		ft_putchar_count(str[i], data);
+		str[i] = (*f)(i, s[i]);
 		i++;
 	}
+	str[i] = '\0';
+	return (str);
 }

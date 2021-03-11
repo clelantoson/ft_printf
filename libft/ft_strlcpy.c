@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/22 17:33:18 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/09 18:08:56 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+size_t		ft_strlcpy(char *dest, char *src, size_t size)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	if (size <= 0)
+		return (ft_strlen(src));
+	if ((dest == NULL) && (src == NULL))
+		return (0);
+	while (src[i] && i < size - 1)
 	{
-		ft_putchar_count(str[i], data);
+		dest[i] = src[i];
 		i++;
 	}
+	dest[i] = '\0';
+	return (ft_strlen(src));
 }

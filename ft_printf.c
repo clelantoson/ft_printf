@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 00:26:09 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/11 21:16:09 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,11 +52,11 @@ int		ft_printf(const char *format, ...)
 			 if (ft_is_in_type_list(format[data.i]))
 			{
 				data.i++;
-				ft_putchar(format[data.i], &data);
+				ft_putchar_count(format[data.i], &data);
 			}
 			else
 			{
-				ft_putchar(format[data.i], &data);
+				ft_putchar_count(format[data.i], &data);
 			} //printf("count = %d\n", data.count_chars);
 		}
 		if (format[data.i] == '%')

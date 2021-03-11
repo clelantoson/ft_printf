@@ -1,25 +1,37 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_strjoin.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/12/03 18:11:01 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/15 15:37:13 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+char		*ft_strjoin(char const *s1, char const *s2)
 {
-	int i;
+	char	*str;
+	int		i;
+	int		j;
 
 	i = 0;
-	while (str[i])
+	j = 0;
+	if (!s1 || !s2)
+		return (NULL);
+	str = (char *)malloc(sizeof(char) * (ft_strlen(s1) + ft_strlen(s2) + 1));
+	if (str == NULL)
+		return (NULL);
+	while (s1[i])
 	{
-		ft_putchar_count(str[i], data);
+		str[i] = s1[i];
 		i++;
 	}
+	while (s2[j])
+		str[i++] = s2[j++];
+	str[i] = '\0';
+	return (str);
 }

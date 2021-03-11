@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 18:56:37 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/04 21:36:58 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/11 21:15:15 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,5 +15,5 @@
 void	ft_deal_with_pc(t_flags *data)
 
 {
-	ft_putchar('%', data);
+	ft_putchar_count('%', data);
 }

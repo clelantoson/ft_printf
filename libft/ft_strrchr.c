@@ -1,25 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_strrchr.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/27 15:20:31 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/20 01:55:08 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+char	*ft_strrchr(const char *s, int c)
 {
-	int i;
+	int len;
 
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar_count(str[i], data);
-		i++;
-	}
+	len = ft_strlen(s);
+	while (s[len] != (char)c && (len > 0) && s > 0)
+		len--;
+	if (s[len] == (char)c)
+		return ((char *)s + len);
+	else
+		return (NULL);
 }

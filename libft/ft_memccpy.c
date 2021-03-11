@@ -1,25 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_memccpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/30 17:30:21 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/09 18:10:33 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void	*ft_memccpy(void *dst, const void *src, int c, size_t n)
 {
-	int i;
+	size_t i;
 
 	i = 0;
-	while (str[i])
+	if ((dst == NULL) && (src == NULL))
+		return (NULL);
+	while (i < n)
 	{
-		ft_putchar_count(str[i], data);
+		((unsigned char *)dst)[i] = ((unsigned char*)src)[i];
+		if (((unsigned char*)src)[i] == ((unsigned char)c))
+			return (&dst[i + 1]);
 		i++;
 	}
+	return (NULL);
 }

@@ -1,25 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2021/03/11 21:24:00 by cle-lan           #+#    #+#             */
+/*   Updated: 2021/03/11 21:25:25 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+char*	ft_tolower(char *str)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	while(str[i])
 	{
-		ft_putchar_count(str[i], data);
-		i++;
+		if (str[i] >= 'A' && str[i] <= 'Z')
+		{
+			str[i] = (str[i] + 32);
+			i++;
+		}
+		else
+			i++;
 	}
+	return (str);
 }

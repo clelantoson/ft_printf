@@ -1,25 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_lstiter.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/12/17 17:41:36 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/17 18:30:44 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void	ft_lstiter(t_list *lst, void (*f)(void *))
 {
-	int i;
-
-	i = 0;
-	while (str[i])
+	if (!lst || !f)
+		return ;
+	while (lst)
 	{
-		ft_putchar_count(str[i], data);
-		i++;
+		(f)(lst->content);
+		lst = lst->next;
 	}
 }

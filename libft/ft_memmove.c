@@ -1,25 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_memmove.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/24 10:18:12 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/09 18:10:01 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void	*ft_memmove(void *dst, const void *src, size_t len)
 {
-	int i;
+	size_t	i;
 
 	i = 0;
-	while (str[i])
+	if ((dst == NULL) && (src == NULL))
+		return (NULL);
+	if (src <= dst)
 	{
-		ft_putchar_count(str[i], data);
-		i++;
+		while (len > 0)
+		{
+			((char *)dst)[len - 1] = ((const char *)src)[len - 1];
+			len--;
+		}
 	}
+	else
+	{
+		while (i < len)
+		{
+			((char *)dst)[i] = ((const char *)src)[i];
+			i++;
+		}
+	}
+	return (dst);
 }

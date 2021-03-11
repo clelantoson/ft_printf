@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_bzero.c                                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/23 17:30:44 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/04 17:39:27 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void				ft_bzero(void *s, size_t n)
 {
-	int i;
+	size_t			i;
+	unsigned char	*ptr;
 
+	ptr = (unsigned char*)s;
 	i = 0;
-	while (str[i])
+	while (i < n)
 	{
-		ft_putchar_count(str[i], data);
+		ptr[i] = '\0';
 		i++;
 	}
 }

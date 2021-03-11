@@ -1,25 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_putstr_fd.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/12/02 18:13:53 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/09 18:11:22 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void	ft_putstr_fd(char *s, int fd)
 {
 	int i;
 
 	i = 0;
-	while (str[i])
+	if (s == NULL)
+		return ;
+	while (s[i])
 	{
-		ft_putchar_count(str[i], data);
+		ft_putchar_fd(s[i], fd);
 		i++;
 	}
 }

@@ -1,25 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_lstnew.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/12/15 14:28:46 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/16 15:02:55 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+t_list	*ft_lstnew(void *content)
 {
-	int i;
+	t_list *list;
 
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar_count(str[i], data);
-		i++;
-	}
+	list = malloc(sizeof(t_list));
+	if (list == NULL)
+		return (NULL);
+	list->content = content;
+	list->next = NULL;
+	return (list);
 }

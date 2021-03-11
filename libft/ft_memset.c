@@ -1,25 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/23 10:27:27 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/04 17:39:00 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+void				*ft_memset(void *b, int c, size_t len)
 {
-	int i;
+	size_t			i;
+	unsigned char	*ptr;
 
+	ptr = (unsigned char*)b;
 	i = 0;
-	while (str[i])
+	while (i < len)
 	{
-		ft_putchar_count(str[i], data);
+		ptr[i] = c;
 		i++;
 	}
+	return (b);
 }

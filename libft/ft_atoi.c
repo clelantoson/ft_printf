@@ -1,25 +1,38 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
+/*   ft_atoi.c                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:15:43 by cle-lan          ###   ########.fr       */
+/*   Created: 2020/11/20 11:59:34 by cle-lan           #+#    #+#             */
+/*   Updated: 2020/12/14 17:19:26 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "libft.h"
 
-void	ft_deal_with_str(char *str, t_flags *data)
+int			ft_atoi(const char *str)
 {
-	int i;
+	int		i;
+	int		nbr;
+	int		sign;
 
 	i = 0;
-	while (str[i])
+	nbr = 0;
+	sign = 1;
+	while ((str[i] >= 9 && str[i] <= 13) || (str[i] == 32))
+		i++;
+	if (str[i] == '+' || str[i] == '-')
 	{
-		ft_putchar_count(str[i], data);
+		if (str[i] == '-')
+			sign = -1;
 		i++;
 	}
+	while (str[i] && ft_isdigit(str[i]))
+	{
+		nbr = nbr * 10 + str[i] - '0';
+		i++;
+	}
+	return (nbr * sign);
 }
