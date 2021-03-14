@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:16:09 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/14 22:38:17 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,34 +41,33 @@ int		ft_printf(const char *format, ...)
 {
 	va_list args;
 	t_flags data;
-	data.count_chars = 0;
-	data.i = 0;
+	int i;
+
+	i = 0;
 	va_start(args, format);
 	data = ft_init_struct();
-	while (format[data.i])
+	while (format[i])
 	{
-		if (format[data.i] != '%')
+		if (format[i] == '%' && ft_is_in_type_list(format[i + 1]))
+			data.it_was_percent = 1;
+		else
 		{
-			 if (ft_is_in_type_list(format[data.i]))
+			if (data.it_was_percent)
 			{
-				data.i++;
-				ft_putchar_count(format[data.i], &data);
+				if (ft_is_in_type_list(format[i]))
+				{
+					data.type = format[i];
+					ft_dispatch_to_type((char)data.type, &data, args);
+				}
+				data.it_was_percent = 0;
 			}
-			else
-			{
-				ft_putchar_count(format[data.i], &data);
-			} //printf("count = %d\n", data.count_chars);
+			if (!ft_is_in_type_list(format[i]))
+				ft_putchar_count(format[i], &data);
 		}
-		if (format[data.i] == '%')
-		{
-			data.type = format[data.i + 1];
-			// i++;
-			// printf("format[i + 1] = %d !\n", format[i + 1]);
-			ft_dispatch_to_type((char)data.type, &data, args);
-			//printf("data %d \n", data.count_chars);
-		}
-		data.i++;
+		i++;
 	}
 	va_end(args);
 	return (data.count_chars); //valeur de retour de printf cest le nb de char printed
 }
+
+//flags ’-0.*’ et la taille de champ minimale avec toutes les conversions
