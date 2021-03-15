@@ -5,6 +5,7 @@
 # include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
+#include "libft.h"
 
 typedef struct s_flags
 {
@@ -34,7 +35,8 @@ t_flags ft_init_struct(void);
 void	ft_deal_with_pc(t_flags *data);
 char	*ft_ulltoa_base(unsigned long long to_hexa, int base);
 void	ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data);
-char	*ft_tolower(char *str);
+char	*ft_str_tolower(char *str);
 void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data);
+int	ft_is_in_flag_list(int c);
 
 #endif

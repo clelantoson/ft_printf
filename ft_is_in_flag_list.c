@@ -1,31 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_ptr.c                                 :+:      :+:    :+:   */
+/*   ft_is_in_flag_list.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/10 14:51:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/15 14:31:30 by cle-lan          ###   ########.fr       */
+/*   Created: 2021/03/15 11:18:08 by cle-lan           #+#    #+#             */
+/*   Updated: 2021/03/15 12:48:07 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
+int     ft_is_in_flag_list(int c)
 {
-	char	*pointer;
-	int i;
-	int count;
-
-	i = 0;
-	count = 0;
-	pointer = ft_ulltoa_base(to_pointer, 16);
-	pointer = ft_str_tolower(pointer);
-	ft_putstr_count("0x", data);
-	while (pointer[i])
-	{
-		ft_putchar_count(pointer[i], data);
-		i++;
-	}
+    return ((c == '-') || (c == '0') || (c == '.') || (c == '*'));
 }

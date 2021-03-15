@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/14 22:38:17 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/15 17:18:07 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,6 +37,32 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 	//return (count_chars);
 }
 
+// void	ft_dispatch_to_flags(int arg, t_flags *data, va_list args)
+// {
+// 	if (arg == '.')
+// 	{
+// 		data->dot = arg;
+// 		ft_deal_with_dot(va_arg(args, int), data);
+// 	}
+// 	else if (arg == '-')
+// 	{
+// 		data->minus = arg;
+// 		ft_deal_with_minus(va_arg(args, int), data);
+// 	}
+// 	else if (arg == '*')
+// 	{
+// 		data->star = arg;
+// 		ft_deal_with_star(va_arg(args, int), data);
+// 	}
+// 	else if (arg == '0')
+// 	{
+// 		data->zero = arg;
+// 		ft_deal_with_zero(va_arg(args, int), data);
+// 	}
+// 	else if (arg == ft_isdigit)
+
+// }
+
 int		ft_printf(const char *format, ...)
 {
 	va_list args;
@@ -48,12 +74,18 @@ int		ft_printf(const char *format, ...)
 	data = ft_init_struct();
 	while (format[i])
 	{
-		if (format[i] == '%' && ft_is_in_type_list(format[i + 1]))
+		if (format[i] == '%' && ft_is_in_type_list(format[i + 1])) // && verifie si %%
 			data.it_was_percent = 1;
 		else
 		{
 			if (data.it_was_percent)
 			{
+				if (ft_is_in_flag_list(format[i]))
+					{
+						data.buffer = *format;
+						printf("data.buffer = %c\n", data.buffer);
+						ft_dispatch_to_flags((char)data.type, &data, args);
+					}
 				if (ft_is_in_type_list(format[i]))
 				{
 					data.type = format[i];
