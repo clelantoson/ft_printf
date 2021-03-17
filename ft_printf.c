@@ -3,20 +3,17 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/16 15:28:59 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/17 11:28:03 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include "ft_printf.h"
 
 void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 {
-	// int count_chars;
-	// count_chars = 0;
 	if (arg == 'c')
 		ft_deal_with_char(va_arg(args, int), data);
 	else if (arg == 's')
@@ -33,34 +30,41 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 		ft_deal_with_hex(va_arg(args, unsigned int), 0, data);
 	else if (arg == '%')
 		ft_deal_with_pc(data);
-
-	//return (count_chars);
 }
 
-void	ft_dispatch_to_flags(int arg, t_flags *data, va_list args)
+void	ft_parse_n_dispatch_to_flags(int arg, t_flags *data, va_list args)
 {
-	(void) args;
-// 	if (arg == '.')
-// 	{
-// 		data->dot = 1;
-// 		ft_deal_with_dot(va_arg(args, int), data);
-// 	}
-	if (arg == '-')
+	// char *buffer;
+	// while (buffer = data->buffer && buffer[data->i])
+	while (data->buffer[data->i])
 	{
-		data->minus = 1;
-		//ft_deal_with_minus(va_arg(args, int), data);
+		if (arg == '.')
+		{
+			data->dot = 1;
+			// ft_deal_with_dot(va_arg(args, int), data);
+		}
+		if (arg == '-')
+		{
+			data->minus = 1;
+			data->zero = 0; //si on a un zero apres le - il n'est pas pris en compte
+			//ft_deal_with_minus(va_arg(args, int), data);
+		}
+		else if (arg == '*')
+		{
+			data->star = 1;
+			//ft_deal_with_star(va_arg(args, int), data);
+		}
+		else if (arg == '0')
+		{
+			data->zero = 1;
+			//ft_deal_with_zero(va_arg(args, int), data);
+		}
+		else if (arg == ft_isdigit)
+		{
+
+		}
+		data->i++;
 	}
-// 	else if (arg == '*')
-// 	{
-// 		data->star = 1;
-// 		ft_deal_with_star(va_arg(args, int), data);
-// 	}
-// 	else if (arg == '0')
-// 	{
-// 		data->zero = 1;
-// 		ft_deal_with_zero(va_arg(args, int), data);
-// 	}
-// 	else if (arg == ft_isdigit)
 }
 
 int		ft_printf(const char *format, ...)
@@ -74,7 +78,7 @@ int		ft_printf(const char *format, ...)
 	data = ft_init_struct();
 	while (format[i])
 	{
-		if (format[i] == '%') // && verifie si %%
+		if (format[i] == '%') // && format[i+1]verifie si %%
 			data.it_was_percent = 1;
 		else
 		{
@@ -83,10 +87,11 @@ int		ft_printf(const char *format, ...)
 			{
 				if (ft_is_in_flag_list(format[i]))
 				{
-					data.buffer = *format;	
-					//ft_dispatch_to_flags((char)data.type, &data, args);
+					data.i = format[i];
+					data.buffer = *format;
+					ft_parse_n_dispatch_to_flags((char)data.type, &data, args);
 				}
-				if (ft_is_in_type_list(format[i]))
+				else if (ft_is_in_type_list(format[i]))
 				{
 					data.type = format[i];
 					ft_dispatch_to_type((char)data.type, &data, args);

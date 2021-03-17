@@ -10,7 +10,7 @@
 typedef struct s_flags
 {
 	int type;
-	char buffer;
+	char *buffer;
 	int count_chars;
 	int i;
 	int minus;
