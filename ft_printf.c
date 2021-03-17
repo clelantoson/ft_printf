@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/17 11:28:03 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/17 16:33:00 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,36 +32,38 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 		ft_deal_with_pc(data);
 }
 
-void	ft_parse_n_dispatch_to_flags(int arg, t_flags *data, va_list args)
+void	ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 {
 	// char *buffer;
 	// while (buffer = data->buffer && buffer[data->i])
 	while (data->buffer[data->i])
 	{
-		if (arg == '.')
-		{
-			data->dot = 1;
-			// ft_deal_with_dot(va_arg(args, int), data);
-		}
-		if (arg == '-')
+		
+		if (data->buffer[data->i] == '-')
 		{
 			data->minus = 1;
 			data->zero = 0; //si on a un zero apres le - il n'est pas pris en compte
 			//ft_deal_with_minus(va_arg(args, int), data);
 		}
-		else if (arg == '*')
+		else if (data->buffer[data->i] == '*')
 		{
 			data->star = 1;
 			//ft_deal_with_star(va_arg(args, int), data);
 		}
-		else if (arg == '0')
+		else if (data->buffer[data->i] == '0')
 		{
 			data->zero = 1;
 			//ft_deal_with_zero(va_arg(args, int), data);
 		}
-		else if (arg == ft_isdigit)
+		else if (data->buffer[data->i] == '.')
 		{
-
+			data->dot = 1;
+			// ft_deal_with_dot(va_arg(args, int), data);
+		}
+		else if (data->buffer[data->i] == ft_isdigit(data->buffer[data->i]))
+		{
+			data->width = va_arg(args, int);
+			printf("va_arg(args, int) %d\n", va_arg(args, int));
 		}
 		data->i++;
 	}
@@ -80,7 +82,7 @@ int		ft_printf(const char *format, ...)
 	{
 		if (format[i] == '%') // && format[i+1]verifie si %%
 			data.it_was_percent = 1;
-		else
+		else if (format[i] != '%')
 		{
 			// printf("data was percent %d\n", data.it_was_percent);
 			if (data.it_was_percent)
@@ -88,8 +90,9 @@ int		ft_printf(const char *format, ...)
 				if (ft_is_in_flag_list(format[i]))
 				{
 					data.i = format[i];
-					data.buffer = *format;
-					ft_parse_n_dispatch_to_flags((char)data.type, &data, args);
+					data.buffer = (char *)format;
+					//printf("data.buffer = (%s)\n", data.buffer);
+					ft_parse_n_dispatch_to_flags(&data, args);
 				}
 				else if (ft_is_in_type_list(format[i]))
 				{

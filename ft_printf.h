@@ -25,7 +25,6 @@ size_t	ft_strlen(const char *str);
 int		ft_printf(const char *, ...);
 void	ft_putstr_count(char *s, t_flags *data);
 void	ft_putchar_count(char c, t_flags *data);
-char	*ft_strchr(const char *s, int c);
 void	ft_deal_with_char(char c, t_flags *data);
 int		ft_is_in_type_list(int c);
 void	ft_deal_with_str(char *str, t_flags *data);
@@ -38,5 +37,5 @@ void	ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data);
 char	*ft_str_tolower(char *str);
 void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data);
 int		ft_is_in_flag_list(int c);
-void	ft_dispatch_to_flags(int arg, t_flags *data, va_list args);
+void	ft_dispatch_to_flags(t_flags *data, va_list args);
 #endif

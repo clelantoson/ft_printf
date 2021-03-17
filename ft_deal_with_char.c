@@ -14,7 +14,10 @@
 
 void		ft_deal_with_char(char c, t_flags *data)
 {
-	ft_putchar_count(c, data);
+	if (data->minus == 1)
+		ft_putchar_count(c, data);
+	if (data->minus == 0)
+		ft_putchar_count(c, data);
 }
 
 //Si derriere le % on a s => on cherche une string
