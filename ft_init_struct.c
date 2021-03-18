@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:50:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/14 22:26:13 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/18 11:54:12 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,6 +18,7 @@ t_flags ft_init_struct(void)
 
 	data.type = 0;
 	data.i = 0;
+	data.buffer = NULL;
 	data.count_chars = 0;
 	data.minus = 0;
 	data.zero = 0;

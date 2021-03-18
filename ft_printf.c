@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/17 16:33:00 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/18 15:31:53 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,36 +34,45 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 
 void	ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 {
+	(void) args;
 	// char *buffer;
 	// while (buffer = data->buffer && buffer[data->i])
+	// printf("(data->buffer[data->i] = %c)\n", data->buffer[data->i]);
+	// printf("(data->buffer[data->i] = %d)\n", data->buffer[data->i]);
+	// printf("data->buffer = %s\n", data->buffer);
+	// printf("[data->i] = %d\n", data->i);
+	// printf("[data->i] = %c\n", data->i);
 	while (data->buffer[data->i])
 	{
-		
+		//printf("(data->buffer[data->i] %d)\n", data->buffer[data->i]);
+		 printf("data->i = %d\n", data->i);
+		 printf("data->buffer[data->i]= %c\n", data->buffer[data->i]);
 		if (data->buffer[data->i] == '-')
 		{
 			data->minus = 1;
 			data->zero = 0; //si on a un zero apres le - il n'est pas pris en compte
 			//ft_deal_with_minus(va_arg(args, int), data);
 		}
-		else if (data->buffer[data->i] == '*')
+		if (data->buffer[data->i] == '*')
 		{
 			data->star = 1;
 			//ft_deal_with_star(va_arg(args, int), data);
 		}
-		else if (data->buffer[data->i] == '0')
+		if (data->buffer[data->i] == '0')
 		{
 			data->zero = 1;
 			//ft_deal_with_zero(va_arg(args, int), data);
 		}
-		else if (data->buffer[data->i] == '.')
+		if (data->buffer[data->i] == '.')
 		{
 			data->dot = 1;
 			// ft_deal_with_dot(va_arg(args, int), data);
 		}
-		else if (data->buffer[data->i] == ft_isdigit(data->buffer[data->i]))
+		if (ft_isdigit(data->buffer[data->i]))
 		{
-			data->width = va_arg(args, int);
-			printf("va_arg(args, int) %d\n", va_arg(args, int));
+			printf("coucou\n");
+			data->width = data->width * 10 + (data->buffer[data->i]);
+			printf("data->width %d\n", data->width);
 		}
 		data->i++;
 	}
@@ -89,9 +98,13 @@ int		ft_printf(const char *format, ...)
 			{
 				if (ft_is_in_flag_list(format[i]))
 				{
-					data.i = format[i];
+					data.i = i;
 					data.buffer = (char *)format;
-					//printf("data.buffer = (%s)\n", data.buffer);
+					// printf("data.buffer = (%s)\n", data.buffer);
+					// printf("(data.buffer[data.i] = %c)\n", data.buffer[data.i]);
+					// printf("(data.buffer[data.i] = %d)\n", data.buffer[data.i]);
+					printf("data.i = %d\n", data.i);
+					 printf("data.i = %c\n", data.i);
 					ft_parse_n_dispatch_to_flags(&data, args);
 				}
 				else if (ft_is_in_type_list(format[i]))
