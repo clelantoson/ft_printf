@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
+#    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/03/15 14:31:30 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/03/19 22:30:04 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -32,8 +32,11 @@ SRC =	ft_printf.c \
 		ft_deal_with_pc.c \
 		*ft_ulltoa_base.c \
 		ft_deal_with_hex.c \
-		ft_str_tolower.c \
+		ft_to_str_lower.c \
 		ft_deal_with_ptr.c \
+		ft_is_in_flag_list.c \
+		ft_dispatch_to_flags.c \
+		ft_deal_with_width.c \
 
 OBJ = $(SRC:.c=.o)
 

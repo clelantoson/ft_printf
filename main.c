@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/18 12:05:23 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/20 01:18:58 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,9 +29,9 @@ int main()
     int ret2;
     char c;
     c = 'a';
-    ret1 = ft_printf("1 - Hello %-5c !\n", c);
-    ret2 = printf("2 - Hello %-5c !\n", c);
-    // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    ret1 = ft_printf("H %6c !\n", c);
+    ret2 = printf("H %6c !\n", c);
+    printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // char *str;
     // str = "world";
     // ret1 = ft_printf("1 - Hello %s !\n", str);
