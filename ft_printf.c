@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/23 14:13:17 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/23 17:39:49 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		if (data->buffer[data->i] == '*')
 		{
 			data->star = 1;
-			//ft_deal_with_star(va_arg(args, int), data);
+			data->width = va_arg(args, int);
 		}
 		if (data->buffer[data->i] == '0')
 		{
@@ -65,12 +65,15 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		}
 		if (data->buffer[data->i] == '.')
 		{
-			data->dot = 1;
-			// ft_deal_with_dot(va_arg(args, int), data);
+			data->i++;
+			if (ft_isdigit(data->buffer[data->i]))
+				data->dot = (data->dot * 10) + data->buffer[data->i] - '0';
+			else if (data->buffer[data->i] == '*')
+				data->dot = va_arg(args, int);
+		//printf("data->dot = %d\n", data->dot);
 		}
 		if (ft_isdigit(data->buffer[data->i]))
 		{
-
 			data->width = (data->width * 10) + data->buffer[data->i] - '0';
 			//printf("(data->width ] = %d)\n", data->width);
 		}
@@ -95,22 +98,6 @@ int		ft_printf(const char *format, ...)
 	data = ft_init_struct();
 	while (format[i])
 	{
-	// 	if (!format[i])
-	// 		break ;
-	// 	else if (format[i] == '%' && format[i + 1])
-	// 	{
-	// 		 	data.i = i;
-	// 			data.buffer = (char *)format;
-	// 			i = ft_parse_n_dispatch_to_flags(&data, args);
-	// 		if (ft_is_in_type_list(format[i]))
-	// 			ft_dispatch_to_type((char)data.type, &data, args);
-	// 		else if (format[i])
-	// 			ft_putchar_count(format[i], &data);
-	// 	}
-	// 	else if (format[i] != '%')
-	// 		ft_putchar_count(format[i], &data);
-	// 	i++;
-	// }
 		if (format[i] == '%') // && format[i+1]verifie si %%
 			data.it_was_percent = 1;
 		else if (format[i] != '%')
