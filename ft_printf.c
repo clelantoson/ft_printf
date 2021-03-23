@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/20 00:28:46 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/23 10:59:32 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -117,12 +117,9 @@ int		ft_printf(const char *format, ...)
 		{
 			if (data.it_was_percent)
 			{
-				// if (ft_is_in_flag_list(format[i]))
-				// {
 					data.i = i;
 					data.buffer = (char *)format;
 					i = ft_parse_n_dispatch_to_flags(&data, args);
-				// }
 				if (ft_is_in_type_list(format[i]))
 				{
 					data.type = format[i];
@@ -138,7 +135,7 @@ int		ft_printf(const char *format, ...)
 		i++;
 	}
 	va_end(args);
-	return (data.count_chars); //valeur de retour de printf cest le nb de char printed
+	return (data.count_chars);
 }
 
 //flags ’-0.*’ et la taille de champ minimale avec toutes les conversions

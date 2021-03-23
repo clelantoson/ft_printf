@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/18 20:50:05 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/20 01:18:51 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/23 10:55:04 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	ft_deal_with_width(t_flags *data)
 {
-	while (data->width - (data->minus - 1) > 1)
+	while (data->width - 1 > 0)
 	{
 		if (data->zero == 1)
 			ft_putchar_count('0', data);
@@ -22,4 +22,5 @@ void	ft_deal_with_width(t_flags *data)
 			ft_putchar_count(' ', data);
 		data->width--;
 	}
+	data->width = 0;
 }
