@@ -16,13 +16,13 @@ void		ft_deal_with_char(char c, t_flags *data)
 {
 	if (data->minus == 0)
 	{
-		ft_deal_with_width(data);
+		ft_deal_with_width(data, 1);
 		ft_putchar_count(c, data);
 	}
 	else if (data->minus == 1)
 	{
 		ft_putchar_count(c, data);
-		ft_deal_with_width(data);
+		ft_deal_with_width(data, 1);
 	}
 }
 
