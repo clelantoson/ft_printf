@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/23 17:39:49 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/24 15:13:43 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,6 +65,7 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		}
 		if (data->buffer[data->i] == '.')
 		{
+			data->dot = 1;
 			data->i++;
 			if (ft_isdigit(data->buffer[data->i]))
 				data->dot = (data->dot * 10) + data->buffer[data->i] - '0';
