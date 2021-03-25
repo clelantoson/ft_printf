@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/25 21:15:23 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/25 22:36:33 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,14 @@ void	ft_deal_with_str(char *str, t_flags *data)
 	}
 	if (data->dot > 0)
 	{
-		if (data->width == 0)
-			ft_putstr_count("", data);
-		else
-		{
+		// if (data->width == 0)
+		// 	ft_putstr_count("", data);
+		// else
+		// {
 			ft_deal_with_width(data, data->dot);
 			ft_putstrdot_count(str, data, data->dot);
-			data->dot = 0;
-		}
+			data->dot = -1;
+		// }
 	}
 	// if ((size_t)data->dot < ft_strlen(str))
 	// 	ft_deal_with_width(data, data->dot);
