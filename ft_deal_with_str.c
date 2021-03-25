@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/24 15:15:30 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/25 15:17:57 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	ft_deal_with_str(char *str, t_flags *data)
 {
+//	printf("datadot %d\n",data->dot);
 	if (!str)
 		str = "(null)";
 	if (data->minus == 0 && data->dot == 0)
@@ -31,6 +32,13 @@ void	ft_deal_with_str(char *str, t_flags *data)
 		if (data->width == 0)
 			ft_putstr_count("", data);
 		else
+		{
 			ft_putstrdot_count(str, data, data->dot);
+			data->dot = 0;
+		}
 	}
+	// if ((size_t)data->dot < ft_strlen(str))
+	// 	ft_deal_with_width(data, data->dot);
 }
+
+
