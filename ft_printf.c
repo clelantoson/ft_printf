@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/24 17:16:57 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/25 21:01:57 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,6 +72,7 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 				data->dot = va_arg(args, int);
 			else
 				data->dot = 1;
+			data->i++;
 		//printf("data->dot = %d\n", data->dot);
 		}
 		if (ft_isdigit(data->buffer[data->i]))
