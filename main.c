@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/25 21:43:19 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/26 11:41:11 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,13 +34,13 @@ int main()
     // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     char *str1;
    // char *str2;
-    str1 = "Hello";
+    str1 = "yolo";
    // str2 = "world";
     //str2 = "b";
     // ret1 = ft_printf("%3.7s%7.3s\n", str1, str2);
     // ret2 = printf("%3.7s%7.3s\n", str1, str2);
-    ret1 = ft_printf("%.3s\n", str1);
-    ret2 = printf("%.3s\n", str1);
+    ret1 = ft_printf("%7.5s\n", str1);
+    ret2 = printf("%7.5s\n", str1);
     printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // unsigned int a = 123456789;
     // ret1 = ft_printf("1 - Hello %u !\n", a);

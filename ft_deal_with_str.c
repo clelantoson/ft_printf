@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/25 22:36:33 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/26 12:30:04 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,14 +29,19 @@ void	ft_deal_with_str(char *str, t_flags *data)
 	}
 	if (data->dot > 0)
 	{
-		// if (data->width == 0)
-		// 	ft_putstr_count("", data);
-		// else
-		// {
+		if (data->dot >= 0 && (size_t)data->dot > ft_strlen(str))
+		{
+			data->dot = ft_strlen(str);
 			ft_deal_with_width(data, data->dot);
 			ft_putstrdot_count(str, data, data->dot);
 			data->dot = -1;
-		// }
+		}
+		else
+		{
+			ft_deal_with_width(data, data->dot);
+			ft_putstrdot_count(str, data, data->dot);
+			data->dot = -1;
+		}
 	}
 	// if ((size_t)data->dot < ft_strlen(str))
 	// 	ft_deal_with_width(data, data->dot);
