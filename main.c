@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/28 20:11:27 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/29 10:45:11 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
     // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     char *str1;
    // char *str2;
-    str1 = "NULL";
+    str1 = "hello";
    // str2 = "world";
     //str2 = "b";
     // ret1 = ft_printf("%3.7s%7.3s\n", str1, str2);
