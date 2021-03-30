@@ -16,6 +16,7 @@ typedef struct s_flags
 	int minus;
 	int zero;
 	int dot;
+	int bool_dot;
 	int star;
 	int width;
 	int it_was_percent;

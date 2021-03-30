@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putstrdot_count.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/23 17:20:09 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/29 12:26:15 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/30 15:35:18 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,5 +24,5 @@ void	ft_putstrdot_count(char *s, t_flags *data, int precision)
 		ft_putchar_count(s[i], data);
 		i++;
 	}
-	data->dot = -1;
+	data->dot = 0;
 }
