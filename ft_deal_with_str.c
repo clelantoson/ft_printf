@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/31 23:43:13 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/01 01:30:58 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void ft_deal_with_dot(char *str, t_flags *data)
 
 void	ft_deal_with_str(char *str, t_flags *data)
 {
+	int temp;
+
 	if (!str)
 		str = "(null)";
 
@@ -52,6 +54,16 @@ void	ft_deal_with_str(char *str, t_flags *data)
 	}
 	else if (data->minus == 1)
 	{
+		if (data->dot == 1)
+		{
+			if (data->width > 0)
+			{
+				//ft_putstrdot_count(str, data, data->dot);
+				ft_deal_with_width(data, 0); //%-3.1s
+			}
+			else
+				ft_deal_with_width(data, 0); //%-3.1s
+		}
 		if (data->dot < 0)
 		{
 			ft_putstr_count(str, data);
@@ -59,8 +71,16 @@ void	ft_deal_with_str(char *str, t_flags *data)
 		}
 		else if (data->dot > 0)
 		{
-			ft_putstr_count(str, data);
-			ft_deal_with_width(data, ft_strlen(str));
+			if ((size_t)data->dot > ft_strlen(str))
+			{
+				data->dot = ft_strlen(str);
+			}
+			if (data->dot > 0)
+			{
+				temp = data->dot;
+				ft_putstrdot_count(str, data, data->dot);
+				ft_deal_with_width(data, temp);
+			}
 		}
 	}
 }
