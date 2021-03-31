@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/31 00:56:55 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/03/31 11:45:43 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,10 +58,9 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 			data->star = 1;
 			data->width = va_arg(args, int);
 		}
-		if (data->buffer[data->i] == '0')
+		if (data->buffer[data->i] == '0' && data->width == 0)
 		{
 			data->zero = 1;
-			//ft_deal_with_zero(va_arg(args, int), data);
 		}
 		if (data->buffer[data->i] == '.')
 		{
