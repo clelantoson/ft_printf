@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/01 00:53:05 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/01 17:59:48 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int main()
     // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     char *str1;
    // char *str2;
-    str1 = "h";
+    str1 = "";
    // str2 = "world";
     //str2 = "b";
     // ret1 = ft_printf("%3.7s%7.3s\n", str1, str2);
