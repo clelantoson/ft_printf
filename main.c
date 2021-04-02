@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/02 15:13:35 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/02 15:48:55 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ int main()
     // ret1 = ft_printf("1 - Hello %u !\n", a);
     // ret2 = printf("2 - Hello %u !\n", a);
     // printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
-    d = 33;
+    d = 3;
     //int i = -33;
-    ret1 = ft_printf("%7d !\n", d);
-    ret2 = printf("%7d !\n", d);
+    ret1 = ft_printf("%.5d !\n", d);
+    ret2 = printf("%.5d !\n", d);
     printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // ret1 = ft_printf("1 - Hello %% !\n");
     // ret2 = printf("2 - Hello %% !\n");
