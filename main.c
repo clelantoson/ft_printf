@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/06 16:41:02 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/07 11:54:19 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,7 @@ int main()
     // ret1 = ft_printf("1 - Hello %u !\n", a);
     // ret2 = printf("2 - Hello %u !\n", a);
     // printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
-    d = 3;
+    d = 2;
     //int i = -33;
     ret1 = ft_printf("%.5d !\n", d);
     ret2 = printf("%.5d !\n", d);
@@ -65,7 +65,7 @@ int main()
     // ret2 = printf("Hello %x !\n", x);
     // printf("ma fct hexa x : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // ret1 = ft_printf("Hello %p !\n", str);
-    // ret2 = printf("Hello %p !\n", str); 
+    // ret2 = printf("Hello %p !\n", str);
     // printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     }
 
@@ -73,7 +73,7 @@ int main()
 // void    ft_deal_with_int(int num, t_flags *data)
 // {
 //     char *i_to_s;
-    
+
 //     i_to_s = ft_itoa(num);
 //     if (data->minus == 0)
 //     {
