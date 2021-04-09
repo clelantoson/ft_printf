@@ -3,181 +3,76 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/08 14:33:48 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/09 13:05:05 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void    ft_deal_with_int(int num, t_flags *data)
+void			ft_deal_with_int(int num, t_flags *data)
 {
-	char *i_to_s;
-	int copydot;
-	int copywidth;
-	copydot = data->dot;
-	copywidth = data->width;
-
-	i_to_s = ft_itoa(num);
-
-	if (data->dot > 0  && (data->width == 0 || data->width < data->dot))
+	char	*d_i;
+	int		save_i;
+	int copydot = data->dot;
+	int copywidth = data->width;
+	
+	save_i = num;
+	if (data->dot == 0 && num == 0)
 	{
-		if ((size_t)data->dot > ft_strlen(i_to_s))
-		{
-			if (num < 0 || data->zero == 1)
-			{
-				ft_putstr_count("-", data);
-				num *= -1;
-				data->zero = 1;
-				data->width--;
-			}
-		}
-		else if ((size_t)data->dot <= ft_strlen(i_to_s))
-		{
-			ft_deal_with_width(data, ft_strlen(i_to_s));
-			ft_putnbr_count_chars(num, data);
-		}
+		ft_deal_with_width(data, 0);
 	}
-
-
-	// if (data->width > 0 && data->dot > 0)
-	// {
-	// 	ft_deal_with_width(data, ft_strlen(i_to_s));
-	// 	ft_putstrdot_count("0", data, data->width - data->dot);
-	// 	ft_putnbr_count_chars(num, data);
-	// }
-
-		// if (copy_num < 0 && data->dot >= 0)
-			// 	// 	ft_putstr_count("-", data);
-
-	if (data->width > data->dot)
+	if (num < 0 && (data->dot >= 0 || data->zero == 1))
 	{
-		if (data->minus == 0)
-		{
-
-			// if (data->dot > 0)
-			// {
-			// 	if (data->width > 0)
-			// 	{
-			// 		ft_deal_with_width(data, ft_strlen(i_to_s));
-			// 		free(i_to_s);
-			// 		ft_putnbr_count_chars(num, data);
-			// 	}
-			//
-			// }
-			if (data->dot >= 0)
-			{
-				data->width -= data->dot;
-				ft_deal_with_width(data, 0);
-			}
-			if (data->dot >= 0)
-			{
-				data->width = data->dot - 1;
-				data->zero = 1;
-				ft_deal_with_width(data, ft_strlen(i_to_s) -1);
-				ft_putstrdot_count(i_to_s, data, ft_strlen(i_to_s));
-			}
-			else
-			{
-				ft_deal_with_width(data, ft_strlen(i_to_s));
-				ft_putnbr_count_chars(num, data);
-				free(i_to_s);
-			}
-		}
-		else if (data->minus == 1)
-		{
-			if (data->dot >= 0)
-			{
-				data->width = data->dot - 1;
-				data->zero = 1;
-				ft_deal_with_width(data, ft_strlen(i_to_s) -1);
-				ft_putstrdot_count(i_to_s, data, ft_strlen(i_to_s));
-				data->dot = copydot;
-			}
-			if (data->dot >= 0)
-			{
-				data->width = copywidth;
-				data->width -= data->dot;
-				data->zero = 0;
-				ft_deal_with_width(data, 0);
-			}
-			else
-			{
-				ft_putnbr_count_chars(num, data);
-				ft_deal_with_width(data, ft_strlen(i_to_s));
-				free(i_to_s);
-			}
-		}
+		if (data->zero == 1 && data->dot == -1)
+			ft_putstr_count("-", data);
+		num *= -1;
+		data->zero = 1;
+		data->width--;
+		data->zero = 0;
 	}
-	else if (data->width < data->dot)
+	d_i = ft_itoa(num);
+	
+	if (data->minus == 1)
 	{
-		if (data->minus == 0)
+		if (save_i < 0 && data->dot >= 0)
+			ft_putchar_count('-', data);
+		if (data->dot >= 0)
 		{
-			if (data->dot > 0)
-			{
-				if (data->width > 0)
-				{
-					ft_deal_with_width(data, ft_strlen(i_to_s));
-					free(i_to_s);
-					ft_putnbr_count_chars(num, data);
-				}
-				else if ((size_t)data->dot > ft_strlen(i_to_s))
-				{
-					data->zero = 1;
-					//data->dot = ft_strlen(i_to_s);
-					data->width = data->dot -1;
-					ft_deal_with_width(data, 0);
-					ft_putnbr_count_chars(num, data);
-					//free(i_to_s);
-				}
-			}
-			else
-			{
-				ft_deal_with_width(data, ft_strlen(i_to_s));
-				ft_putnbr_count_chars(num, data);
-				free(i_to_s);
-			}
-
+			data->width = data->dot - 1;
+			data->zero = 1;
+			ft_deal_with_width(data, ft_strlen(d_i) - 1);
 		}
-		else if (data->minus == 1)
-		{
-			ft_putnbr_count_chars(num, data);
-			ft_deal_with_width(data, ft_strlen(i_to_s));
-			free(i_to_s);
-		}
+		ft_putstrdot_count(d_i, data, ft_strlen(d_i));
+		data->dot = copydot;
+		data->width = copywidth;
+		data->zero = 0;
 	}
-	 else if (data->width == data->dot)
+	if (data->dot >= 0 && (size_t)data->dot < ft_strlen(d_i))
+		data->dot = ft_strlen(d_i);
+	if (data->dot >= 0)
 	{
-		if (data->minus == 0)
-		{
-			// ft_deal_with_width(data, ft_strlen(i_to_s));
-			// ft_putnbr_count_chars(num, data);
-			// free(i_to_s);
-			if (data->dot > 0)
-			{
-				if (data->width > 0)
-				{
-					ft_deal_with_width(data, ft_strlen(i_to_s));
-					free(i_to_s);
-					ft_putnbr_count_chars(num, data);
-				}
-			}
-			else
-			{
-				ft_deal_with_width(data, ft_strlen(i_to_s));
-				ft_putnbr_count_chars(num, data);
-				free(i_to_s);
-			}
-		}
-		else if (data->minus == 1)
-		{
-			ft_putnbr_count_chars(num, data);
-			ft_deal_with_width(data, ft_strlen(i_to_s));
-			free(i_to_s);
-		}
+		data->width -= data->dot;
+		ft_deal_with_width(data, 0);
 	}
+	else
+		ft_deal_with_width(data, ft_strlen(d_i));
+
+	if (data->minus == 0)
+	{
+		if (save_i < 0 && data->dot >= 0)
+			ft_putchar_count('-', data);
+		if (data->dot >= 0)
+		{
+			data->width = data->dot - 1;
+			data->zero = 1;
+			ft_deal_with_width(data, ft_strlen(d_i) - 1);
+		}
+		ft_putstrdot_count(d_i, data, ft_strlen(d_i));
+	}
+	free(d_i);
 }
 
 
