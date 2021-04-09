@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/09 14:30:06 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/09 15:03:48 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 	if (data->dot == 0 && num == 0)
 	{
 		ft_deal_with_width(data, 0);
+		return ;
 	}
 	if (num < 0 && (data->dot >= 0 || data->zero == 1))
 	{
