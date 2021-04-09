@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/09 13:05:05 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/09 14:30:06 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,6 +20,8 @@ void			ft_deal_with_int(int num, t_flags *data)
 	int copywidth = data->width;
 	
 	save_i = num;
+	if (data->zero == 1 && data->dot > 0)
+		data->zero = 0;
 	if (data->dot == 0 && num == 0)
 	{
 		ft_deal_with_width(data, 0);
@@ -33,6 +35,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		data->width--;
 		data->zero = 0;
 	}
+
 	d_i = ft_itoa(num);
 	
 	if (data->minus == 1)
