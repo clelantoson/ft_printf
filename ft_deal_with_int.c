@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/09 15:03:48 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/09 17:33:42 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,14 @@
 
 void			ft_deal_with_int(int num, t_flags *data)
 {
-	char	*d_i;
-	int		save_i;
-	int copydot = data->dot;
-	int copywidth = data->width;
-	
-	save_i = num;
+	char		*numstr;
+	int			copy_num;
+	int 		copy_dot; 
+	int 		copy_width; 
+
+	copy_dot = data->dot;
+	copy_width = data->width;
+	copy_num = num;
 	if (data->zero == 1 && data->dot > 0)
 		data->zero = 0;
 	if (data->dot == 0 && num == 0)
@@ -27,7 +29,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		ft_deal_with_width(data, 0);
 		return ;
 	}
-	if (num < 0 && (data->dot >= 0 || data->zero == 1))
+	if (num < 0 && (data->dot > 0 || data->zero == 1))
 	{
 		if (data->zero == 1 && data->dot == -1)
 			ft_putstr_count("-", data);
@@ -37,46 +39,51 @@ void			ft_deal_with_int(int num, t_flags *data)
 		data->zero = 0;
 	}
 
-	d_i = ft_itoa(num);
+	numstr = ft_itoa(num);
 	
 	if (data->minus == 1)
 	{
-		if (save_i < 0 && data->dot >= 0)
+		if (copy_num < 0 && data->dot > 0)
 			ft_putchar_count('-', data);
-		if (data->dot >= 0)
+		if (data->dot > 0)
 		{
 			data->width = data->dot - 1;
 			data->zero = 1;
-			ft_deal_with_width(data, ft_strlen(d_i) - 1);
+			ft_deal_with_width(data, ft_strlen(numstr) - 1);
 		}
-		ft_putstrdot_count(d_i, data, ft_strlen(d_i));
-		data->dot = copydot;
-		data->width = copywidth;
+		ft_putstrdot_count(numstr, data, ft_strlen(numstr));
+		data->dot = copy_dot;
+		data->width = copy_width;
 		data->zero = 0;
 	}
-	if (data->dot >= 0 && (size_t)data->dot < ft_strlen(d_i))
-		data->dot = ft_strlen(d_i);
-	if (data->dot >= 0)
+	if (data->dot > 0 && (size_t)data->dot < ft_strlen(numstr))
+	{
+		data->dot = ft_strlen(numstr);
+	}
+
+	if (data->dot > 0)
 	{
 		data->width -= data->dot;
+		if ((copy_width > copy_dot) && (copy_num < 0) && (data->zero == 0))
+			data->width = ft_strlen(numstr) -1;
 		ft_deal_with_width(data, 0);
 	}
 	else
-		ft_deal_with_width(data, ft_strlen(d_i));
+		ft_deal_with_width(data, ft_strlen(numstr));
 
 	if (data->minus == 0)
 	{
-		if (save_i < 0 && data->dot >= 0)
+		if (copy_num < 0 && data->dot >= 0)
 			ft_putchar_count('-', data);
 		if (data->dot >= 0)
 		{
 			data->width = data->dot - 1;
 			data->zero = 1;
-			ft_deal_with_width(data, ft_strlen(d_i) - 1);
+			ft_deal_with_width(data, ft_strlen(numstr) - 1);
 		}
-		ft_putstrdot_count(d_i, data, ft_strlen(d_i));
+		ft_putstrdot_count(numstr, data, ft_strlen(numstr));
 	}
-	free(d_i);
+	free(numstr);
 }
 
 
