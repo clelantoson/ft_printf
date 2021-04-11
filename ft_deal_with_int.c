@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/09 17:33:42 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/12 00:18:52 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,8 +16,9 @@ void			ft_deal_with_int(int num, t_flags *data)
 {
 	char		*numstr;
 	int			copy_num;
-	int 		copy_dot; 
-	int 		copy_width; 
+	int 		copy_dot;
+	int 		copy_width;
+	int 		neg = 0;
 
 	copy_dot = data->dot;
 	copy_width = data->width;
@@ -36,11 +37,12 @@ void			ft_deal_with_int(int num, t_flags *data)
 		num *= -1;
 		data->zero = 1;
 		data->width--;
-		data->zero = 0;
+		data->zero = 1;
+		neg = 1;
 	}
 
 	numstr = ft_itoa(num);
-	
+
 	if (data->minus == 1)
 	{
 		if (copy_num < 0 && data->dot > 0)
@@ -53,19 +55,18 @@ void			ft_deal_with_int(int num, t_flags *data)
 		}
 		ft_putstrdot_count(numstr, data, ft_strlen(numstr));
 		data->dot = copy_dot;
-		data->width = copy_width;
 		data->zero = 0;
+		if (neg == 1)
+				data->width = copy_width -1;
+		else
+			data->width = copy_width;
 	}
 	if (data->dot > 0 && (size_t)data->dot < ft_strlen(numstr))
-	{
 		data->dot = ft_strlen(numstr);
-	}
 
 	if (data->dot > 0)
 	{
 		data->width -= data->dot;
-		if ((copy_width > copy_dot) && (copy_num < 0) && (data->zero == 0))
-			data->width = ft_strlen(numstr) -1;
 		ft_deal_with_width(data, 0);
 	}
 	else
@@ -82,6 +83,12 @@ void			ft_deal_with_int(int num, t_flags *data)
 			ft_deal_with_width(data, ft_strlen(numstr) - 1);
 		}
 		ft_putstrdot_count(numstr, data, ft_strlen(numstr));
+		data->dot = copy_dot;
+		data->zero = 0;
+		if (neg == 1)
+			data->width = copy_width -1;
+		else
+			data->width = copy_width;
 	}
 	free(numstr);
 }
