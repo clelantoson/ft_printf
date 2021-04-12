@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
+#    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/04/12 16:34:49 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/12 23:21:28 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -28,6 +28,7 @@ SRC =	ft_printf.c \
 		ft_deal_with_str.c \
 		ft_putnbr_count_chars.c \
 		ft_deal_with_int.c \
+		ft_deal_with_uint.c \
 		ft_init_struct.c \
 		ft_deal_with_pc.c \
 		*ft_ulltoa_base.c \

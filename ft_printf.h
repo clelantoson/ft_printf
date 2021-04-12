@@ -30,6 +30,7 @@ int		ft_is_in_type_list(int c);
 void	ft_deal_with_str(char *str, t_flags *data);
 void	ft_putnbr_count_chars(int n, t_flags *data);
 void	ft_deal_with_int(int num, t_flags *data);
+void	ft_deal_with_uint(unsigned int num, t_flags *data);
 t_flags ft_init_struct(void);
 void	ft_deal_with_pc(t_flags *data);
 char	*ft_ulltoa_base(unsigned long long to_hexa, int base);
