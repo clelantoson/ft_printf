@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/13 13:29:01 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/13 15:15:16 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 	}
 	if (num < 0 && (data->dot > 0 || data->zero == 1))
 	{
-		if (data->zero == 1 && data->dot == -1)
+		if (data->zero == 1 && (data->dot == -1 || data->width == 0))
 			ft_putstr_count("-", data);
 		num *= -1;
 		data->zero = 1;
@@ -42,7 +42,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		neg = 1;
 	}
 
-	numstr = ft_itoa(num);
+	numstr = ft_itoa(num); //numstr n'a jamais de -
 
 	if (data->minus == 1)
 	{
@@ -76,11 +76,9 @@ void			ft_deal_with_int(int num, t_flags *data)
 
 	if (data->minus == 0)
 	{
-		if (copy_num < 0 && ft_strlen(numstr))
-			ft_putchar_count('-', data);
 		if (copy_num < 0 && data->dot > 0)
 			ft_putchar_count('-', data);
-		if (data->dot >= 0)
+		if (data->dot > 0)
 		{
 			data->width = data->dot - 1;
 			data->zero = 1;
