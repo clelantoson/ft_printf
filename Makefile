@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
+#    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/04/12 23:21:28 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/13 18:17:26 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC =	ft_printf.c \
 		ft_is_in_flag_list.c \
 		ft_deal_with_width.c \
 		ft_putstrdot_count.c \
+		ft_utoa.c \
 
 OBJ = $(SRC:.c=.o)
 

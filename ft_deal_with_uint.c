@@ -15,14 +15,15 @@
 void				ft_deal_with_uint(unsigned int num, t_flags *data)
 {
 	char			*numstr;
+	int				copy_num;
 	int 			copy_dot;
 	int 			copy_width;
 	int 			neg = 0;
 
 	copy_dot = data->dot;
 	copy_width = data->width;
-	num = (unsigned int)(4294967295 + 1 + num);
-
+	copy_num = num;
+	
 	if (data->zero == 1 && data->dot > 0)
 		data->zero = 0;
 	if (data->dot == 0 && num == 0)
@@ -41,11 +42,10 @@ void				ft_deal_with_uint(unsigned int num, t_flags *data)
 		neg = 1;
 	}
 
-	numstr = ft_itoa(num);
-
+	numstr = ft_utoa(num);
 	if (data->minus == 1)
 	{
-		if (num < 0 && data->dot > 0)
+		if (copy_num < 0 && data->dot > 0)
 			ft_putchar_count('-', data);
 		if (data->dot > 0)
 		{
@@ -75,7 +75,7 @@ void				ft_deal_with_uint(unsigned int num, t_flags *data)
 
 	if (data->minus == 0)
 	{
-		if (num < 0 && data->dot >= 0)
+		if (copy_num < 0 && data->dot >= 0)
 			ft_putchar_count('-', data);
 		if (data->dot >= 0)
 		{

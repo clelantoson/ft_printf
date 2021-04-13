@@ -41,5 +41,6 @@ int		ft_is_in_flag_list(int c);
 void	ft_dispatch_to_flags(t_flags *data, va_list args);
 void	ft_deal_with_width(t_flags *data, int len);
 void	ft_putstrdot_count(char *s, t_flags *data, int precision);
+char	*ft_utoa(unsigned int n);
 
 #endif

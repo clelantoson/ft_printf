@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:58:39 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/15 14:31:30 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/13 16:09:04 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,5 +26,6 @@ void	ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data)
 		ft_putchar_count(hexa[i], data);
 		i++;
 	}
+	free(hexa);
 }
 
