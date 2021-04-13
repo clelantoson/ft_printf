@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_str.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/12 17:18:43 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/13 22:06:35 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,11 @@ void ft_deal_with_dot(char *str, t_flags *data)
 void	ft_deal_with_str(char *str, t_flags *data)
 {
 	int temp;
-	
 
 	if (!str)
 		str = "(null)";
+	if (ft_strlen(str) == 0)
+		ft_deal_with_width(data, ft_strlen(str));
 	if (data->dot == 0)
 	{
 		if (data->width > 0)

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/13 17:33:39 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/13 21:56:52 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,26 +28,27 @@ int main()
     int ret1;
     int ret2;
   //  int i;
-   // char c;
-    // c = 'a';
-    // ret1 = ft_printf("%*.c !\n", -4, c);
-    // ret2 = printf("%*.c !\n", -4, c);
-    // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-   //char *str1;
+  //  char c;
+  //   c = 'a';
+  //   ret1 = ft_printf("%*.c !\n", -4, c);
+  //   ret2 = printf("%*.c !\n", -4, c);
+  //   printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+  char *str1;
   //  char *str2;
-  //  str1 = "n";
+   str1 = "";
     //str2 = "world";
     //str2 = "b";
     // ret1 = ft_printf("%3.7s%7.3s\n", str1, str2);
     // ret2 = printf("%3.7s%7.3s\n", str1, str2);
-    // ret1 = ft_printf("%-16.2s\n", str1);
-    // ret2 = printf("%-16.2s\n", str1);
-    // printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    ret1 = ft_printf("%-16.2s\n", str1);
+    ret2 = printf("%-16.2s\n", str1);
+    printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // unsigned int a = 123456789;
-    unsigned int max = 4294967295;
-    ret1 = ft_printf("1 - Hello %u !\n", max);
-    ret2 = printf("2 - Hello %u !\n", max);
-    printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
+    // unsigned int max = 4294967295;
+    // ret1 = ft_printf("1 - Hello %u !\n", max);
+    // ret2 = printf("2 - Hello %u !\n", max);
+    // printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
     // d = -216;
     // int d = -135;
     // ret1 = ft_printf("%0.*d !\n", 0, d);
