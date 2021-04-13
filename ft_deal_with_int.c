@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/12 11:39:58 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/13 13:29:01 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 	copy_dot = data->dot;
 	copy_width = data->width;
 	copy_num = num;
+
 	if (data->zero == 1 && data->dot > 0)
 		data->zero = 0;
 	if (data->dot == 0 && num == 0)
@@ -75,7 +76,9 @@ void			ft_deal_with_int(int num, t_flags *data)
 
 	if (data->minus == 0)
 	{
-		if (copy_num < 0 && data->dot >= 0)
+		if (copy_num < 0 && ft_strlen(numstr))
+			ft_putchar_count('-', data);
+		if (copy_num < 0 && data->dot > 0)
 			ft_putchar_count('-', data);
 		if (data->dot >= 0)
 		{
