@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/13 00:14:02 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/14 13:44:25 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,6 +47,9 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		//printf("(data->buffer[data->i] %d)\n", data->buffer[data->i]);
 		//  printf("data->i = %d\n", data->i);
 		//  printf("data->buffer[data->i]= %c\n", data->buffer[data->i]);
+		if (!ft_isdigit(data->buffer[data->i]) && !ft_is_in_type_list(data->buffer[data->i])
+		&& !ft_is_in_flag_list(data->buffer[data->i]))
+			break ;
 		if (data->buffer[data->i] == '-')
 		{
 			data->minus = 1;
@@ -107,8 +110,16 @@ int		ft_printf(const char *format, ...)
 	data = ft_init_struct();
 	while (format[i])
 	{
-		if (format[i] == '%') // && format[i+1]verifie si %%
-			data.it_was_percent = 1;
+		if (format[i] == '%') // && format[i+1]verifie si %% marche plus
+		{
+			if (data.it_was_percent == 1) //verifie si %%
+			{
+				ft_putchar_count('%', &data);
+				data.it_was_percent = 0;
+			}
+			else
+				data.it_was_percent = 1;
+		}
 		else if (format[i] != '%')
 		{
 			if (data.it_was_percent)
