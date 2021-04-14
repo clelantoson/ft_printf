@@ -5,7 +5,7 @@
 # include <stdlib.h>
 #include <stdio.h>
 #include <unistd.h>
-#include "../libft/libft.h"
+#include "./libft/libft.h"
 
 typedef struct s_flags
 {

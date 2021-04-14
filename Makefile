@@ -3,10 +3,10 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
+#    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/04/13 18:17:26 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/14 15:09:37 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,7 +18,7 @@ NAME = libftprintf.a
 
 CC = clang
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 SRC =	ft_printf.c \
 		ft_putstr_count.c \

@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_ptr.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:51:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/15 14:31:30 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/14 17:05:24 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,4 +28,5 @@ void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 		ft_putchar_count(pointer[i], data);
 		i++;
 	}
+	free(pointer);
 }

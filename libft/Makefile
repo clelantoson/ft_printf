@@ -6,7 +6,7 @@
 #    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/03/11 14:49:54 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/14 15:36:17 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -14,7 +14,7 @@ NAME = libft.a
 
 CC = clang
 
-CFLAGS = -Wall -Werror -Wextra
+CFLAGS = -Wall -Werror -Wextra -g
 
 SRC =	ft_isalpha.c \
 		ft_isdigit.c \

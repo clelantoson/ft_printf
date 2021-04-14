@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/14 11:51:05 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/14 17:33:56 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,16 @@ int main()
     int ret1;
     int ret2;
   //  int i;
-   // char c = '%';
-  //   c = 'a';
-  //   ret1 = ft_printf("%*.c !\n", -4, c);
-  //   ret2 = printf("%*.c !\n", -4, c);
-  //   printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    // char c = '1';
+    // c = 'a';
+    ret1 = ft_printf("%*c%*c\n", -10, '0', 10, '1');
+    ret2 = printf("%*c%*c\n", -10, '0', 10, '1');
+    printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
+
+    // ret1 = ft_printf("%-10c%*c%c*\n",'0', 10, '1', '2');
+    // ret2 = printf("%-10c%*c%c*\n",'0', 10, '1', '2');
+    // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
   //char *str1;
   //  char *str2;
   //  str1 = "";
@@ -54,9 +58,9 @@ int main()
     // ret1 = ft_printf("%0.*d !\n", 0, d);
     // ret2 = printf("%0.*d !\n", 0, d);
     // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    ret1 = ft_printf("%% !\n");
-    ret2 = printf("%% !\n");
-    printf("ma fct %% : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    // ret1 = ft_printf("%% !\n");
+    // ret2 = printf("%% !\n");
+    // printf("ma fct %% : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // int X = 107;
     // ret1 = ft_printf("Hello %X !\n", X);
     // ret2 = printf("Hello %X !\n", X);
