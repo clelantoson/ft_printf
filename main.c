@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/15 12:02:13 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/15 14:34:22 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,9 +30,9 @@ int main()
   //  int i;
     // char c = '1';
     // c = 'a';
-    ret1 = ft_printf("%*c%*c\n", -10, '0', -10, '1');
-    ret2 = printf("%*c%*c\n", -10, '0', -10, '1');
-    printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    // ret1 = ft_printf("%*c%*c\n", -10, '0', -10, '1');
+    // ret2 = printf("%*c%*c\n", -10, '0', -10, '1');
+    // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
 
     // ret1 = ft_printf("%-10c%*c%c*\n",'0', 10, '1', '2');
@@ -45,9 +45,9 @@ int main()
   //   //str2 = "b";
   //   // ret1 = ft_printf("%3.7s%7.3s\n", str1, str2);
   //   // ret2 = printf("%3.7s%7.3s\n", str1, str2);
-  //   ret1 = ft_printf("%-16.2s\n", str1);
-  //   ret2 = printf("%-16.2s\n", str1);
-  //   printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    ret1 = ft_printf("%*.5s %*.5s\n", -10, "123", 10, "4567");
+    ret2 = printf("%*.5s %*.5s\n", -10, "123", 10, "4567");
+    printf("ma fct s : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     // unsigned int a = 123456789;
     // unsigned int max = 4294967295;
     // ret1 = ft_printf("1 - Hello %u !\n", max);
