@@ -3,14 +3,15 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/15 15:07:12 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/15 18:12:56 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdio.h>
+#include <limits.h>
 
 int ft_printf(const char *, ...);
 
@@ -55,16 +56,26 @@ int main()
     // printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
     // d = -216;
     // int d = -135;
-      printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 2, 6, 102, 21, 10, -101);
-      ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0 ", 2, 6, 102, 21, 10, -101);
-      printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011);
-      ft_printf(" 0*%0-*d*0 0*%0*d*0 ", 21, 1021, 21, -1011);
-      printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1);
-      ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -2, 0, 21, 1);
-      printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN);
-      ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, INT_MAX, 21, INT_MIN);
-      printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, LONG_MAX, 21, LONG_MIN);
-      ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- ", -21, LONG_MAX, 21, LONG_MIN);
+  //  ret1 = printf("%0-*.*d %0*.*d\n", 2, 6, 102, 21, 10, -101);
+  //  ret2 = ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0\n", 2, 6, 102, 21, 10, -101);
+  //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+  //   ret1 = printf(" 0*%0-*d*0 0*%0*d*0\n", 21, 1021, 21, -1011);
+  //   ret2 = ft_printf(" 0*%0-*d*0 0*%0*d*0\n", 21, 1021, 21, -1011);
+  //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+  //    ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -2, 0, 21, 1);
+  //    ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -2, 0, 21, 1);
+  //      printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+  //     ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
+  //      ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
+  //       printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+      ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, LONG_MAX, 21, LONG_MIN);
+      ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, LONG_MAX, 21, LONG_MIN);
+        printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    
     // ret1 = ft_printf("%0.*d !\n", 0, d);
     // ret2 = printf("%0.*d !\n", 0, d);
     // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
@@ -83,42 +94,3 @@ int main()
     // ret2 = printf("Hello %p !\n", str);
     // printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     }
-
-
-// void    ft_deal_with_int(int num, t_flags *data)
-// {
-//     char *i_to_s;
-
-//     i_to_s = ft_itoa(num);
-//     if (data->minus == 0)
-//     {
-//         ft_deal_with_width(data, ft_strlen(i_to_s));
-//         ft_putnbr_count_chars(num, data);
-//         //free(i_to_s);
-//         if (data->dot > 0)
-//         {
-//             if (data->width > 0)
-//             {
-//                 ft_deal_with_width(data, ft_strlen(i_to_s));
-//                 free(i_to_s);
-//                 ft_putnbr_count_chars(num, data);
-//             }
-//             else if ((size_t)data->dot < ft_strlen(i_to_s))
-//             {
-//                 data->zero = 1;
-//                 data->dot = ft_strlen(i_to_s);
-//                 data->width = data->dot -1;
-//                 ft_deal_with_width(data, data->width);
-// 	               ft_putnbr_count_chars(num, data);
-//                 free(i_to_s);
-//             }
-//         }
-//     }
-//     else if (data->minus == 1)
-//     {
-//         ft_putnbr_count_chars(num, data);
-//         ft_deal_with_width(data, ft_strlen(i_to_s));
-//         free(i_to_s);
-//     }
-//    // ft_putnbr_count_chars(num, data);
-// }
