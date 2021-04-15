@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/15 18:16:05 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/16 01:53:11 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,8 +24,8 @@ void			ft_deal_with_int(int num, t_flags *data)
 	copy_width = data->width;
 	copy_num = num;
 
-	if (data->minus == 1 && data->zero == 1)
-		data->zero = 0;
+	// if (data->zero == 1 && data->minus == 1)
+	// 	data->minus = 0;
 	if (data->zero == 1 && data->dot >= 0)
 		data->zero = 0;
 	if (data->dot == 0 && num == 0)
@@ -37,14 +37,17 @@ void			ft_deal_with_int(int num, t_flags *data)
 	{
 		if (data->zero == 1 && (data->dot <= 0 || data->width == 0))
 			ft_putstr_count("-", data);
-		num *= -1;
+		num = -num;
 		data->zero = 1;
 		data->width--;
 		data->zero = 1;
 		neg = 1;
 	}
 
-	numstr = ft_itoa(num); //numstr n'a jamais de -
+	if (num == -2147483648)
+		numstr = "2147483648";
+	else
+		numstr = ft_itoa(num); //numstr n'a jamais de -
 
 	if (data->minus == 1)
 	{
@@ -94,7 +97,10 @@ void			ft_deal_with_int(int num, t_flags *data)
 		else
 			data->width = copy_width;
 	}
-	free(numstr);
+	if (num == -2147483648)
+		return ;
+	else
+		free(numstr);
 }
 
 

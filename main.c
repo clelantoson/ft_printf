@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/15 18:12:56 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/16 00:48:25 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,26 +56,30 @@ int main()
     // printf("ma fct u : ret1 %u vraie fct : ret2 %u\n", ret1, ret2);
     // d = -216;
     // int d = -135;
-  //  ret1 = printf("%0-*.*d %0*.*d\n", 2, 6, 102, 21, 10, -101);
-  //  ret2 = ft_printf(" 0*%0-*.*d*0 0*%0*.*d*0\n", 2, 6, 102, 21, 10, -101);
+
+  //trouver moyen enlever minus
+  //   ret1 = printf("%0-*.*d %0*.*d\n", 2, 6, 102, 21, 10, -101);
+  //  ret2 = ft_printf("%0-*.*d %0*.*d\n", 2, 6, 102, 21, 10, -101);
   //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-  //   ret1 = printf(" 0*%0-*d*0 0*%0*d*0\n", 21, 1021, 21, -1011);
+   //   ret1 = printf(" 0*%0-*d*0 0*%0*d*0\n", 21, 1021, 21, -1011);
   //   ret2 = ft_printf(" 0*%0-*d*0 0*%0*d*0\n", 21, 1021, 21, -1011);
   //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-  //    ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -2, 0, 21, 1);
-  //    ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -2, 0, 21, 1);
-  //      printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    //  ret1 = printf("%0*.0d %0*.10d\n", -2, 0, 21, 1);
+    //  ret2 = ft_printf("%0*.0d %0*.10d\n", -2, 0, 21, 1);
+    //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-  //     ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
-  //      ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
-  //       printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-      ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, LONG_MAX, 21, LONG_MIN);
-      ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, LONG_MAX, 21, LONG_MIN);
-        printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    
+
+      ret1 = printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
+      ret2 = ft_printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
+      printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+      // ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
+      // ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
+      //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
     // ret1 = ft_printf("%0.*d !\n", 0, d);
     // ret2 = printf("%0.*d !\n", 0, d);
     // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);

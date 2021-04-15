@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/14 13:44:25 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/16 01:56:48 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -71,6 +71,7 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		if (data->buffer[data->i] == '0' && data->width == 0)
 		{
 			data->zero = 1;
+			//data->minus = 0;
 		}
 		if (data->buffer[data->i] == '.')
 		{
@@ -87,6 +88,8 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 		}
 		if (ft_isdigit(data->buffer[data->i]))
 		{
+			// if (data->star == 1)
+			// 	data->width = 0;
 			data->width = (data->width * 10) + data->buffer[data->i] - '0';
 		}
 		if (ft_is_in_type_list(data->buffer[data->i]))
@@ -131,13 +134,12 @@ int		ft_printf(const char *format, ...)
 				{
 					data.type = format[i];
 					ft_dispatch_to_type((char)data.type, &data, args);
+					data.minus = 0;
 				}
 				data.it_was_percent = 0;
 			}
 			else
-			{
 				ft_putchar_count(format[i], &data);
-			}
 		}
 		i++;
 	}
