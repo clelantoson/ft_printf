@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_ulltoa_base.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/11 21:22:07 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/11 21:22:30 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/16 14:41:41 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,8 +38,8 @@ char	*ft_ulltoa_base(unsigned long long to_hexa, int base)
 	str = 0;
 	count = 0;
 	to_hexa_copy = to_hexa;
-	// if (to_hexa == 0)
-	//return (ft_strdup("0"));
+	if (to_hexa == 0)
+		return (ft_strdup("0"));
 	 while (to_hexa != 0)
 	{
 		to_hexa /= base;
