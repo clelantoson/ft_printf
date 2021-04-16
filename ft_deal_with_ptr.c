@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:51:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/16 16:28:03 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/16 17:33:03 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,8 @@ void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 	copy_width = data->width;
 	copy_ptr = to_pointer;
 
-	if (data->zero == 1 && data->dot >= 0)
-		data->zero = 0;
+	// if (data->zero == 1 && data->dot >= 0)
+	// 	data->zero = 0;
 	if (to_pointer == 0 && data->dot == 0)
 	{
 		ft_putstrdot_count("0x", data, 2);
@@ -46,22 +46,13 @@ void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 			data->zero = 1;
 			ft_deal_with_width(data, ft_strlen(pointer));
 		}
-		ft_putstrdot_count("0x", data, 2);
-		ft_putstrdot_count(pointer, data, ft_strlen(pointer));
 		data->dot = copy_dot;
 		data->zero = 0;
+		ft_putstrdot_count("0x", data, 2);
+		ft_putstrdot_count(pointer, data, ft_strlen(pointer));
+		
 	}
 	ft_deal_with_width(data, ft_strlen(pointer) + 2);
-
-
-	// if (data->dot > 0)
-	// {
-	// 	data->width -= data->dot;
-	// 	data->zero = 0;
-	// 	ft_deal_with_width(data, 0);
-	// }
-	// else
-	// 	ft_deal_with_width(data, ft_strlen(pointer));
 
 	if (data->minus == 0)
 	{
@@ -71,10 +62,10 @@ void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 			data->zero = 1;
 			ft_deal_with_width(data, ft_strlen(pointer));
 		}
-		ft_putstrdot_count("0x", data, 2);
-		ft_putstrdot_count(pointer, data, ft_strlen(pointer));
 		data->dot = copy_dot;
 		data->zero = 0;
+		ft_putstrdot_count("0x", data, 2);
+		ft_putstrdot_count(pointer, data, ft_strlen(pointer));
 	}
 	free(pointer);
 }
