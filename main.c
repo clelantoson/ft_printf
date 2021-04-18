@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/16 00:48:25 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/18 19:42:02 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,18 +23,16 @@ int ft_printf(const char *, ...);
 //     ft_printf("ft_printf -  This is char %c\n", a, b, c);
 // }-
 
-
 int main()
 {
     int ret1;
     int ret2;
-  //  int i;
+    //  int i;
     // char c = '1';
     // c = 'a';
     // ret1 = ft_printf("%*c%*c\n", -10, '0', -10, '1');
     // ret2 = printf("%*c%*c\n", -10, '0', -10, '1');
     // printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-
 
     // ret1 = ft_printf("%-10c%*c%c*\n",'0', 10, '1', '2');
     // ret2 = printf("%-10c%*c%c*\n",'0', 10, '1', '2');
@@ -70,11 +68,9 @@ int main()
     //  ret2 = ft_printf("%0*.0d %0*.10d\n", -2, 0, 21, 1);
     //   printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-
-
-      ret1 = printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
-      ret2 = ft_printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
-      printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+      // ret1 = printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
+      // ret2 = ft_printf("%0*.0d %0*.10d\n", -21, INT_MAX, 21, INT_MIN);
+      // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
       // ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
       // ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0-- \n", -21, LONG_MAX, 21, LONG_MIN);
@@ -94,7 +90,13 @@ int main()
     // ret1 = ft_printf("Hello %x !\n", x);
     // ret2 = printf("Hello %x !\n", x);
     // printf("ma fct hexa x : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    // ret1 = ft_printf("Hello %p !\n", str);
-    // ret2 = printf("Hello %p !\n", str);
+
+   // int a = 0;
+    int *pnull = NULL;
+    // ret1 = ft_printf("Hello %-6.p !\n", &a);
+    // ret2 = printf("Hello %-6.p !\n", &a);
     // printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+    ret1 = ft_printf("Hello %16.p !\n", pnull);
+    ret2 = printf("Hello %16.p !\n", pnull);
+    printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     }
