@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/16 01:53:11 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/19 15:41:26 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		neg = 1;
 	}
 
-	if (num == -2147483648)
+	if (num == -2147483648 && neg == 1)
 		numstr = "2147483648";
 	else
 		numstr = ft_itoa(num); //numstr n'a jamais de -
@@ -97,7 +97,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		else
 			data->width = copy_width;
 	}
-	if (num == -2147483648)
+	if (num == -2147483648 && neg == 1)
 		return ;
 	else
 		free(numstr);
