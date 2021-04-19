@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/19 15:38:28 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/19 18:08:37 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,8 +72,12 @@ int main()
       // ret2 = ft_printf("%d\n", INT_MIN);
       // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
-      ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
-      ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
+      // ret1 = printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
+      // ret2 = ft_printf(" --0*%0*.0d*0 0*%0*.10d*0--\n", -21, INT_MAX, 21, INT_MIN);
+      // printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+      ret1 = printf("%035.5d%7.68d\n" ,54, 85);
+      ret2 = ft_printf("%35.5d%7.68d\n" ,54, 85);
       printf("ma fct d : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 
       //  ret1 = printf("%d\n", INT_MAX);
