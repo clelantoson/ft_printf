@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/18 19:42:02 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/19 14:49:50 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -96,7 +96,7 @@ int main()
     // ret1 = ft_printf("Hello %-6.p !\n", &a);
     // ret2 = printf("Hello %-6.p !\n", &a);
     // printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
-    ret1 = ft_printf("Hello %16.p !\n", pnull);
-    ret2 = printf("Hello %16.p !\n", pnull);
+    ret1 = ft_printf("Hello %*.p !\n", -3, pnull);
+    ret2 = printf("Hello %*.p !\n", -3, pnull);
     printf("ma fct p : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
     }
