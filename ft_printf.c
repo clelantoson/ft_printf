@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/20 15:28:37 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/20 17:16:38 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -122,7 +122,7 @@ int		ft_printf(const char *format, ...)
 				{
 					data.type = format[i];
 					ft_dispatch_to_type((char)data.type, &data, args);
-					data.minus = 0;
+					ft_init_flags(&data);
 				}
 				data.it_was_percent = 0;
 			}

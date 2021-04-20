@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 15:00:16 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/20 15:07:29 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/20 17:13:19 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,10 +23,17 @@ int ft_printf(const char *, ...);
 //     ft_printf("ft_printf -  This is char %c\n", a, b, c);
 // }-
 
-// int main()
-// {
-//     int ret1;
-//     int ret2;
+int main()
+{
+    int ret1;
+    int ret2;
+
+	ret1 = ft_printf("%25.5d%-7.52d\n" ,54,85);
+	ret2 =	printf("%25.5d%-7.52d\n" ,54,85);
+	printf("ma fct : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+
+	//ft_printf("%098.58d%--7.168d" ,549613177,850697743)
+
     //  int i;
     // char c = '1';
     // c = 'a';
@@ -123,39 +130,39 @@ int ft_printf(const char *, ...);
     // }
 
 
-int main()
-{
-	int		a = -4;
-	int		b = 0;
-	char	c = 'a';
-	int		d = 2147483647;
-	int		e = -2147483648;
-	int		f = 42;
-	int		g = 25;
-	int		h = 4200;
-	int		i = 8;
-	int		j = -12;
-	int		k = 123456789;
-	int		l = 0;
-	int		m = -12345678;
-	char	*n = "abcdefghijklmnop";
-	char	*o = "-a";
-	char	*p = "-12";
-	char	*q = "0";
-	char	*r = "%%";
-	char	*s = "-2147483648";
-	char	*t = "0x12345678";
-	char	*u = "-0";
+// int main()
+// {
+// 	int		a = -4;
+// 	int		b = 0;
+// 	char	c = 'a';
+// 	int		d = 2147483647;
+// 	int		e = -2147483648;
+// 	int		f = 42;
+// 	int		g = 25;
+// 	int		h = 4200;
+// 	int		i = 8;
+// 	int		j = -12;
+// 	int		k = 123456789;
+// 	int		l = 0;
+// 	int		m = -12345678;
+// 	char	*n = "abcdefghijklmnop";
+// 	char	*o = "-a";
+// 	char	*p = "-12";
+// 	char	*q = "0";
+// 	char	*r = "%%";
+// 	char	*s = "-2147483648";
+// 	char	*t = "0x12345678";
+// 	char	*u = "-0";
 
-    int ret1;
-    int ret2;
+//     int ret1;
+//     int ret2;
 
 	// ft_printf(" --- Return : %d\n", ft_printf("Simple input test"));
 	// ft_printf(" --- Return : %d\n", ft_printf("%i, %d, %d, %d, %d, %s, %c, %d, %u, %x, %X", i, j, k, l, m, n, c, c, j, j, j)); //T2
 	// ft_printf(" --- Return : %d\n", ft_printf("%0i, %0d, %0d, %0d, %0d, %0d, %0d, %0d", i, j, k, l, m, c, e, d)); //T3
-	ret1 = ft_printf(" --- Return : %d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d)); //T4
-	ret2 = printf(" --- Return : %d\n", printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d)); //T4
-	 printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
+	// ret1 = ft_printf(" --- Return : %d\n", ft_printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d)); //T4
+	// ret2 = printf(" --- Return : %d\n", printf("%1i, %1d, %1d, %1d, %1d, %1d, %1d, %1d", i, j, k, l, m, c, e, d)); //T4
+	//  printf("ma fct c : ret1 %i vraie fct : ret2 %i\n", ret1, ret2);
 	// ft_printf(" --- Return : %d\n", ft_printf("%2i, %2d, %2d, %2d, %2d, %2d, %2d, %2d", i, j, k, l, m, c, e, d)); //T5
 	// ft_printf(" --- Return : %d\n", ft_printf("%3i, %3d, %3d, %3d, %3d, %3d, %3d, %3d", i, j, k, l, m, c, e, d)); //T6
 	// ft_printf(" --- Return : %d\n", ft_printf("%4i, %4d, %4d, %4d, %4d, %4d, %4d, %4d", i, j, k, l, m, c, e, d)); //T7
