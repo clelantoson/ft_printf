@@ -3,16 +3,14 @@
 #                                                         :::      ::::::::    #
 #    Makefile                                           :+:      :+:    :+:    #
 #                                                     +:+ +:+         +:+      #
-#    By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+         #
+#    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/04/14 15:09:37 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/20 15:28:59 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 LIBFT = ./libft/libft.a
-
-N_TEMP = temp.a
 
 NAME = libftprintf.a
 
@@ -39,6 +37,7 @@ SRC =	ft_printf.c \
 		ft_deal_with_width.c \
 		ft_putstrdot_count.c \
 		ft_utoa.c \
+		ft_init_flags.c \
 
 OBJ = $(SRC:.c=.o)
 
