@@ -43,5 +43,8 @@ void	ft_deal_with_width(t_flags *data, int len);
 void	ft_putstrdot_count(char *s, t_flags *data, int precision);
 char	*ft_utoa(unsigned int n);
 void 	ft_init_flags(t_flags *data);
+void	ft_is_star(t_flags *data, va_list args);
+int		ft_is_dot(t_flags *data, va_list args);
+void	ft_is_minus(t_flags *data);
 
 #endif

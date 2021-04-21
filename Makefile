@@ -6,7 +6,7 @@
 #    By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2021/03/11 14:49:53 by cle-lan           #+#    #+#              #
-#    Updated: 2021/04/20 15:28:59 by cle-lan          ###   ########.fr        #
+#    Updated: 2021/04/21 11:34:49 by cle-lan          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -38,6 +38,7 @@ SRC =	ft_printf.c \
 		ft_putstrdot_count.c \
 		ft_utoa.c \
 		ft_init_flags.c \
+		ft_deal_flags.c \
 
 OBJ = $(SRC:.c=.o)
 

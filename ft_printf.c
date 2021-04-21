@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/21 11:15:41 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 12:05:43 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,6 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 
 int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 {
-	(void)args;
 	while (data->buffer[data->i])
 	{
 		if (!ft_isdigit(data->buffer[data->i]) &&
@@ -42,36 +41,13 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 					&& !ft_is_in_flag_list(data->buffer[data->i]))
 			break ;
 		if (data->buffer[data->i] == '-')
-		{
-			data->minus = 1;
-			data->zero = 0;
-		}
+			ft_is_minus(data);
 		if (data->buffer[data->i] == '*')
-		{
-			data->star = 1;
-			data->width = va_arg(args, int);
-			if (data->width < 0)
-			{
-				data->width *= -1;
-				data->minus = 1;
-				if (data->zero == 1 && data->minus == 1)
-					data->zero = 0;
-			}
-		}
+			ft_is_star(data, args);
 		if (data->buffer[data->i] == '0' && data->width == 0)
 			data->zero = 1;
 		if (data->buffer[data->i] == '.')
-		{
-			data->i++;
-			data->dot = 0;
-			while (ft_isdigit(data->buffer[data->i]))
-			{
-				data->dot = (data->dot * 10) + data->buffer[data->i] - '0';
-				data->i++;
-			}
-			if (data->buffer[data->i] == '*')
-				data->dot = va_arg(args, int);
-		}
+			data->i = ft_is_dot(data, args);
 		if (ft_isdigit(data->buffer[data->i]))
 			data->width = (data->width * 10) + data->buffer[data->i] - '0';
 		if (ft_is_in_type_list(data->buffer[data->i]))
@@ -132,9 +108,7 @@ int			ft_printf(const char *format, ...)
 		if (format[i] == '%')
 			ft_if_pct(&data);
 		else if (format[i] != '%')
-		{
 			i = ft_notpct(&data, args, i, format);
-		}
 		i++;
 	}
 	va_end(args);
