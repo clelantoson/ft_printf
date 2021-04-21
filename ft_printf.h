@@ -19,6 +19,7 @@ typedef struct s_flags
 	int star;
 	int width;
 	int it_was_percent;
+	int neg;
 } t_flags;
 
 size_t	ft_strlen(const char *str);
@@ -46,5 +47,7 @@ void 	ft_init_flags(t_flags *data);
 void	ft_is_star(t_flags *data, va_list args);
 int		ft_is_dot(t_flags *data, va_list args);
 void	ft_is_minus(t_flags *data);
-
+void	ft_print_width_int(t_flags *data, char *numstr);
+void	ft_print_width_and_dot_int(t_flags *data, int copy_dot, char *numstr);
+int		ft_num_is_negative(int num, t_flags *data);
 #endif

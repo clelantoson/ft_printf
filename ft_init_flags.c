@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_flags.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/04/20 15:30:13 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/21 12:17:22 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 23:50:47 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,5 @@ void	ft_init_flags(t_flags *data)
 	data->dot = -1;
 	data->star = 0;
 	data->width = 0;
+	data->neg = 0;
 }
