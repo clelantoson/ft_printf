@@ -6,17 +6,13 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/15 11:18:08 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/16 15:02:25 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 12:10:04 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-int     ft_is_in_flag_list(int c)
+int		ft_is_in_flag_list(int c)
 {
-    // printf("coucou is in flag list %d,\n", c);
-    // printf("return %d\n", ((c == '-') || (c == '0') || (c == '.') || (c == '*')) );
-    
-    return ((c == '-') || (c == '0') || (c == '.') || (c == '*'));
-    
+	return ((c == '-') || (c == '0') || (c == '.') || (c == '*'));
 }
