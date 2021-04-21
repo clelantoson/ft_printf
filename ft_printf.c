@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/20 17:37:46 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 11:15:41 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -84,11 +84,45 @@ int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 	return (data->i);
 }
 
-int		ft_printf(const char *format, ...)
+void		ft_if_pct(t_flags *data)
+{
+	if (data->it_was_percent == 1)
+	{
+		ft_putchar_count('%', data);
+		data->it_was_percent = 0;
+	}
+	else
+		data->it_was_percent = 1;
+}
+
+int		ft_notpct(t_flags *data, va_list args, int i, const char *format)
+{
+	if (data->it_was_percent)
+	{
+		data->i = i;
+		data->buffer = (char *)format;
+		i = ft_parse_n_dispatch_to_flags(data, args);
+		if (ft_is_in_type_list(format[i]))
+		{
+			data->type = format[i];
+			ft_dispatch_to_type((char)data->type, data, args);
+			ft_init_flags(data);
+		}
+		data->it_was_percent = 0;
+	}
+	else
+	{
+		ft_putchar_count(format[i], data);
+		ft_init_flags(data);
+	}
+	return (i);
+}
+
+int			ft_printf(const char *format, ...)
 {
 	va_list args;
 	t_flags data;
-	int i;
+	int		i;
 
 	i = 0;
 	va_start(args, format);
@@ -96,35 +130,10 @@ int		ft_printf(const char *format, ...)
 	while (format[i])
 	{
 		if (format[i] == '%')
-		{
-			if (data.it_was_percent == 1)
-			{
-				ft_putchar_count('%', &data);
-				data.it_was_percent = 0;
-			}
-			else
-				data.it_was_percent = 1;
-		}
+			ft_if_pct(&data);
 		else if (format[i] != '%')
 		{
-			if (data.it_was_percent)
-			{
-				data.i = i;
-				data.buffer = (char *)format;
-				i = ft_parse_n_dispatch_to_flags(&data, args);
-				if (ft_is_in_type_list(format[i]))
-				{
-					data.type = format[i];
-					ft_dispatch_to_type((char)data.type, &data, args);
-					ft_init_flags(&data);
-				}
-				data.it_was_percent = 0;
-			}
-			else
-			{
-				ft_putchar_count(format[i], &data);
-				ft_init_flags(&data);
-			}
+			i = ft_notpct(&data, args, i, format);
 		}
 		i++;
 	}
