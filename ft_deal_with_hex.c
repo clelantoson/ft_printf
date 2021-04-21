@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/05 20:58:39 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/16 15:37:18 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 12:20:00 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,12 @@
 
 void			ft_deal_with_hex(unsigned int to_hexa, int to_lower, t_flags *data)
 {
-	char		*hexa;
-	int			copy_hex;
-	int 		copy_dot;
-	int 		copy_width;
-	int 		neg;
-	
+	char	*hexa;
+	int		copy_hex;
+	int		copy_dot;
+	int		copy_width;
+	int		neg;
+
 	neg = 0;
 	copy_dot = data->dot;
 	copy_width = data->width;

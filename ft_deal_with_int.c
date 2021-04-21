@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/19 18:09:57 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/21 12:19:21 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,18 +14,17 @@
 
 void			ft_deal_with_int(int num, t_flags *data)
 {
-	char		*numstr;
-	int			copy_num;
-	int 		copy_dot;
-	int 		copy_width;
-	int 		neg = 0;
+	char	*numstr;
+	int		copy_num;
+	int		copy_dot;
+	int		copy_width;
+	int		neg;
 
+	neg = 0;
 	copy_dot = data->dot;
 	copy_width = data->width;
 	copy_num = num;
 
-	// if (data->zero == 1 && data->minus == 1)
-	// 	data->minus = 0;
 	if (data->zero == 1 && data->dot >= 0)
 		data->zero = 0;
 	if (data->dot == 0 && num == 0)
@@ -47,7 +46,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 	if (num == -2147483648 && neg == 1)
 		numstr = "2147483648";
 	else
-		numstr = ft_itoa(num); //numstr n'a jamais de -
+		numstr = ft_itoa(num);
 
 	if (data->minus == 1)
 	{
@@ -63,7 +62,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		data->dot = copy_dot;
 		data->zero = 0;
 		if (neg == 1)
-			data->width = copy_width -1;
+			data->width = copy_width - 1;
 		else
 			data->width = copy_width;
 	}
@@ -93,7 +92,7 @@ void			ft_deal_with_int(int num, t_flags *data)
 		data->dot = copy_dot;
 		data->zero = 0;
 		if (neg == 1)
-			data->width = copy_width -1;
+			data->width = copy_width - 1;
 		else
 			data->width = copy_width;
 	}
@@ -102,8 +101,3 @@ void			ft_deal_with_int(int num, t_flags *data)
 	else
 		free(numstr);
 }
-
-
-//  Si le nombre de chiffres dans l’argument est inférieur à precision , la valeur de sortie est
-//   remplie à gauche de zéros.
-//   La valeur n’est pas tronquée lorsque le nombre de chiffres dépasse la précision
