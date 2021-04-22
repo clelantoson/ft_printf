@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_deal_with_int.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/22 00:19:21 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/22 14:29:44 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void		ft_minus_or_no_minus(t_flags *data, int copy_dot, int copy_width,
 {
 	if (data->minus == 1)
 	{
-		ft_print_width_and_dot_int(data, copy_dot, numstr);
+		ft_print_width_n_dot_int(data, copy_dot, numstr);
 		if (data->neg == 1)
 			data->width = copy_width - 1;
 		else
@@ -26,7 +26,7 @@ void		ft_minus_or_no_minus(t_flags *data, int copy_dot, int copy_width,
 	ft_print_width_int(data, numstr);
 	if (data->minus == 0)
 	{
-		ft_print_width_and_dot_int(data, copy_dot, numstr);
+		ft_print_width_n_dot_int(data, copy_dot, numstr);
 		if (data->neg == 1)
 			data->width = copy_width - 1;
 		else
@@ -48,7 +48,7 @@ void		ft_print_width_int(t_flags *data, char *numstr)
 		ft_deal_with_width(data, ft_strlen(numstr));
 }
 
-void		ft_print_width_and_dot_int(t_flags *data, int copy_dot,
+void		ft_print_width_n_dot_int(t_flags *data, int copy_dot,
 										char *numstr)
 {
 	if (data->neg && data->dot > 0)
