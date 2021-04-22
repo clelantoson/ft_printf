@@ -6,13 +6,13 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/02/19 14:42:14 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/21 12:05:43 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/22 14:18:06 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
+void		ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 {
 	if (arg == 'c')
 		ft_deal_with_char(va_arg(args, int), data);
@@ -32,7 +32,7 @@ void	ft_dispatch_to_type(int arg, t_flags *data, va_list args)
 		ft_deal_with_pc(data);
 }
 
-int		ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
+int			ft_parse_n_dispatch_to_flags(t_flags *data, va_list args)
 {
 	while (data->buffer[data->i])
 	{
@@ -71,7 +71,7 @@ void		ft_if_pct(t_flags *data)
 		data->it_was_percent = 1;
 }
 
-int		ft_notpct(t_flags *data, va_list args, int i, const char *format)
+int			ft_notpct(t_flags *data, va_list args, int i, const char *format)
 {
 	if (data->it_was_percent)
 	{
