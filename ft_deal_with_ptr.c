@@ -6,13 +6,13 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/10 14:51:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/22 13:33:03 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/22 14:15:18 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_width_dot(t_flags *data, char *pointer, int copy_dot,
+void		ft_print_width_dot(t_flags *data, char *pointer, int copy_dot,
 														int copy_width)
 {
 	ft_putstrdot_count("0x", data, 2);
@@ -29,14 +29,17 @@ void	ft_print_width_dot(t_flags *data, char *pointer, int copy_dot,
 	}
 }
 
-void	ft_print_dot_or_not(t_flags *data, char *pointer, int copy_dot,
+void		ft_print_dot_or_not(t_flags *data, char *pointer, int copy_dot,
 														int copy_ptr)
 {
 	if (data->minus == 1)
+	{
 		if (copy_ptr == 0 && copy_dot == 0)
 			ft_deal_with_width(data, 2);
 		else
 			ft_putstrdot_count(pointer, data, ft_strlen(pointer));
+		ft_deal_with_width(data, ft_strlen(pointer) + 2);
+	}
 	else if (data->minus == 0)
 	{
 		if (copy_ptr == 0 && copy_dot == 0)
@@ -46,7 +49,7 @@ void	ft_print_dot_or_not(t_flags *data, char *pointer, int copy_dot,
 	}
 }
 
-char	*ft_check_cases_n_convert(t_flags *data, char *pointer,
+char		*ft_check_cases_n_convert(t_flags *data, char *pointer,
 								unsigned long long to_pointer)
 {
 	if (data->zero == 1 && data->dot >= 0)
@@ -58,13 +61,12 @@ char	*ft_check_cases_n_convert(t_flags *data, char *pointer,
 	return (pointer);
 }
 
-
-void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
+void		ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 {
 	char	*pointer;
 	int		copy_ptr;
-	int 	copy_dot;
-	int 	copy_width;
+	int		copy_dot;
+	int		copy_width;
 
 	copy_dot = data->dot;
 	copy_width = data->width;
@@ -75,7 +77,6 @@ void	ft_deal_with_ptr(unsigned long long to_pointer, t_flags *data)
 	{
 		ft_print_width_dot(data, pointer, copy_dot, copy_width);
 		ft_print_dot_or_not(data, pointer, copy_dot, copy_ptr);
-		ft_deal_with_width(data, ft_strlen(pointer) + 2);
 	}
 	if (data->minus == 0)
 	{
