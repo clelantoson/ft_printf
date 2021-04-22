@@ -6,7 +6,7 @@
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/02 17:19:50 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/21 15:20:33 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/22 14:38:22 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,6 @@ void	ft_print(char *str, t_flags *data, int temp)
 void	ft_no_minus_str(char *str, t_flags *data, int temp)
 {
 	temp = 0;
-
 	if (data->dot < 0)
 	{
 		ft_deal_with_width(data, ft_strlen(str));

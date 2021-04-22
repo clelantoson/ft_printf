@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_init_struct.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/03/04 11:50:10 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/21 23:49:06 by cle-lan          ###   ########.fr       */
+/*   Updated: 2021/04/22 14:38:03 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,4 +29,3 @@ t_flags		ft_init_struct(void)
 	data.neg = 0;
 	return (data);
 }
-

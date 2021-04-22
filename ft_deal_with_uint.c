@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_deal_with_uint.c                                 :+:      :+:    :+:   */
+/*   ft_deal_with_uint.c                                :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: cle-lan <cle-lan@42.student.fr>            +#+  +:+       +#+        */
+/*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/03 14:17:28 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/04/12 22:31:37 by cle-lan          ###   ########.fr       */
+/*   Created: 2021/04/22 14:37:08 by cle-lan           #+#    #+#             */
+/*   Updated: 2021/04/22 14:37:51 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-void	ft_print_width_and_dot_uint(t_flags *data, int copy_dot, int copy_width, char *numstr)
+void		ft_print_width_and_dot_uint(t_flags *data, int copy_dot,
+										int copy_width, char *numstr)
 {
 	if (data->dot > 0)
 	{
@@ -26,7 +27,8 @@ void	ft_print_width_and_dot_uint(t_flags *data, int copy_dot, int copy_width, ch
 	data->width = copy_width;
 }
 
-void		ft_minus_or_no_minus_uint(t_flags *data, int copy_dot, int copy_width, char *numstr)
+void		ft_minus_or_no_minus_uint(t_flags *data, int copy_dot,
+									int copy_width, char *numstr)
 {
 	if (data->minus == 1)
 		ft_print_width_and_dot_uint(data, copy_dot, copy_width, numstr);
@@ -35,7 +37,7 @@ void		ft_minus_or_no_minus_uint(t_flags *data, int copy_dot, int copy_width, cha
 		ft_print_width_and_dot_uint(data, copy_dot, copy_width, numstr);
 }
 
-void				ft_deal_with_uint(unsigned int num, t_flags *data)
+void		ft_deal_with_uint(unsigned int num, t_flags *data)
 {
 	char	*numstr;
 	int		copy_dot;

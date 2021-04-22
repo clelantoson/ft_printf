@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_str_tolower.c                                       :+:      :+:    :+:   */
+/*   ft_to_str_lower.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: cle-lan <cle-lan@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2021/03/11 21:24:00 by cle-lan           #+#    #+#             */
-/*   Updated: 2021/03/15 14:28:01 by cle-lan          ###   ########.fr       */
+/*   Created: 2021/04/22 14:38:32 by cle-lan           #+#    #+#             */
+/*   Updated: 2021/04/22 14:38:44 by cle-lan          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
-char*	ft_str_tolower(char *str)
+char	*ft_str_tolower(char *str)
 {
 	int i;
 
 	i = 0;
-	while(str[i])
+	while (str[i])
 	{
 		if (str[i] >= 'A' && str[i] <= 'Z')
 		{
